@@ -1,0 +1,181 @@
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+
+  display: grid;
+  grid-template-columns: 240px 1fr 220px;
+
+  align-items: center;
+
+  padding: 0 35px;
+
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  z-index: 1000;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.brand{
+  display: flex;
+  align-items: center;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+.brand-up{
+  color: #d10000;
+}
+
+.brand-brainiacs{
+  color: #ffffff;
+}
+
+.brand-dot{
+  color: #d10000;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav-links{
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 30px;
+
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li{
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a{
+  color: white;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover{
+  color: #d10000;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.start-btn{
+  justify-self: end;
+
+  margin-right: 45px; /* left shift */
+
+  padding: 12px 24px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #d10000;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.start-btn:hover{
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 25px rgba(209,0,0,0.35);
+}
+
+/* =========================
+   SCROLL OFFSET
+========================= */
+
+#home,
+#about,
+#register,
+#services{
+  scroll-margin-top: 90px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width: 992px){
+
+  .navbar{
+    grid-template-columns: 220px 1fr 180px;
+    padding: 0 25px;
+  }
+
+  .brand{
+    font-size: 28px;
+  }
+
+  .nav-links{
+    gap: 22px;
+  }
+
+  .start-btn{
+    margin-right: 20px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 768px){
+
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 20px;
+  }
+
+  .brand{
+    font-size: 24px;
+  }
+
+  .nav-links{
+    display: none;
+  }
+
+  .start-btn{
+    margin-right: 0;
+    padding: 10px 18px;
+  }
+}
