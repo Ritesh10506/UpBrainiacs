@@ -1,0 +1,393 @@
+.register-section {
+
+  min-height:100vh;
+
+  background:
+
+  linear-gradient(
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.55)
+  ),
+
+  url("/register-bg.png");
+
+
+  background-size:cover;
+
+  background-position:center;
+
+
+  display:flex;
+
+  align-items:center;
+
+
+  padding:60px 8%;
+
+}
+
+
+
+/* MAIN CONTAINER */
+
+.register-container {
+
+  width:100%;
+
+  max-width:1200px;
+
+  margin:auto;
+
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+
+  gap:70px;
+
+}
+
+
+
+/* LEFT FORM BOX */
+
+.form-card {
+
+
+  width:430px;
+
+
+  padding:35px;
+
+
+  background:
+
+  rgba(255,255,255,0.18);
+
+
+  backdrop-filter:blur(8px);
+
+
+  border-radius:18px;
+
+
+  border:
+
+  1px solid rgba(255,255,255,0.35);
+
+
+  box-shadow:
+
+  0 15px 35px rgba(0,0,0,.35);
+
+}
+
+
+
+
+.form-card h2 {
+
+
+  text-align:center;
+
+
+  color:white;
+
+
+  font-size:30px;
+
+
+  margin-bottom:25px;
+
+
+  text-shadow:
+
+  0 3px 10px black;
+
+
+}
+
+
+
+
+/* FORM */
+
+.register-form {
+
+
+  display:grid;
+
+
+  grid-template-columns:1fr 1fr;
+
+
+  gap:16px;
+
+}
+
+
+
+
+.register-form input,
+.register-form select {
+
+
+  padding:14px 16px;
+
+
+  border-radius:8px;
+
+
+  border:none;
+
+
+  background:
+
+  rgba(255,255,255,0.92);
+
+
+  color:#333;
+
+
+  font-size:15px;
+
+
+}
+
+
+
+
+.register-form input:focus,
+.register-form select:focus {
+
+
+  outline:none;
+
+
+  box-shadow:
+
+  0 0 0 3px rgba(255,65,108,.35);
+
+
+}
+
+
+
+
+/* BUTTON */
+
+.submit-btn {
+
+
+  grid-column:span 2;
+
+
+  padding:16px;
+
+
+  margin-top:10px;
+
+
+  border:none;
+
+
+  border-radius:8px;
+
+
+  background:#d10000;
+
+
+  color:white;
+
+
+  font-size:17px;
+
+
+  font-weight:600;
+
+
+  cursor:pointer;
+
+
+  transition:.3s;
+
+
+}
+
+
+
+.submit-btn:hover {
+
+
+  background:#b00000;
+
+}
+
+
+
+/* RIGHT CONTENT */
+
+
+.register-content {
+
+
+  width:450px;
+
+
+  padding:35px;
+
+
+  background:
+
+  rgba(0,0,0,0.30);
+
+
+  backdrop-filter:blur(8px);
+
+
+  border-radius:18px;
+
+
+  border:
+
+  1px solid rgba(255,255,255,0.25);
+
+
+  color:white;
+
+
+}
+
+
+
+
+.register-content span {
+
+
+  color:#ff4b2b;
+
+
+  font-weight:700;
+
+
+  letter-spacing:2px;
+
+
+}
+
+
+
+.register-content h1 {
+
+
+  font-size:45px;
+
+
+  line-height:1.2;
+
+
+  margin:20px 0;
+
+
+  text-shadow:
+
+  0 4px 12px black;
+
+
+}
+
+
+
+
+.register-content p {
+
+
+  font-size:18px;
+
+
+  line-height:1.6;
+
+
+}
+
+
+
+/* BENEFITS */
+
+.benefit-box {
+
+
+  margin-top:30px;
+
+
+}
+
+
+
+.benefit-box div {
+
+
+  padding:12px 0;
+
+
+  font-size:17px;
+
+
+  border-bottom:
+
+  1px solid rgba(255,255,255,.2);
+
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+
+.register-container {
+
+
+  flex-direction:column;
+
+
+}
+
+
+
+.form-card,
+.register-content {
+
+
+  width:100%;
+
+
+}
+
+
+
+.register-form {
+
+
+  grid-template-columns:1fr;
+
+
+}
+
+
+
+.submit-btn {
+
+
+  grid-column:span 1;
+
+
+}
+
+
+}
