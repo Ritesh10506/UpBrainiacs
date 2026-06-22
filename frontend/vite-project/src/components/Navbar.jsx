@@ -1,12 +1,19 @@
 import "./Navbar.css";
 
 const Navbar = () => {
-  const scrollToRegister = () => {
-    document
-      .getElementById("register")
-      ?.scrollIntoView({
+
+  const scrollToRegister = (e) => {
+    e?.preventDefault();
+
+    const registerSection =
+      document.getElementById("register");
+
+    if (registerSection) {
+      registerSection.scrollIntoView({
         behavior: "smooth",
+        block: "start",
       });
+    }
   };
 
   const scrollToTop = (e) => {
@@ -21,10 +28,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
 
-      {/* Brand */}
+      {/* Logo */}
       <div className="brand">
         <span className="brand-up">Up</span>
-        <span className="brand-brainiacs">Brainiacs</span>
+        <span className="brand-brainiacs">
+          Brainiacs
+        </span>
         <span className="brand-dot">.</span>
       </div>
 
@@ -32,26 +41,32 @@ const Navbar = () => {
       <ul className="nav-links">
 
         <li>
-          <a href="#" onClick={scrollToTop}>
+          <a
+            href="#"
+            onClick={scrollToTop}
+          >
             Home
           </a>
         </li>
 
         <li>
-          <a href="#about">About</a>
+          <a href="#about">
+            About
+          </a>
         </li>
 
         <li>
-          <a href="#register">Registration</a>
-        </li>
-
-        <li>
-          <a href="#services">Services</a>
+          <a
+            href="#register"
+            onClick={scrollToRegister}
+          >
+            Registration
+          </a>
         </li>
 
       </ul>
 
-      {/* CTA */}
+      {/* Apply Button */}
       <button
         className="start-btn"
         onClick={scrollToRegister}

@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar";
 import Stats from "../components/Stats";
 import About from "../components/About";
 import RegisterForm from "../components/RegisterForm";
-import Services from "../components/Services";
 import Countries from "../components/Countries";
 import Footer from "../components/Footer";
 
@@ -79,9 +78,7 @@ export default function Home() {
       {/* Registration Form */}
       <RegisterForm />
 
-      {/* Services Section */}
-      <Services />
-
+      
       {/* Countries Section */}
       <Countries />
 
