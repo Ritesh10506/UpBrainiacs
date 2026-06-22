@@ -22,3 +22,21 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Environment files
+
+.env
+*.env
+
+# Python
+
+.venv/
+**pycache**/
+*.pyc
+
+# Backend env
+
+backend/.env
+
+# Frontend env
+
+frontend/vite-project/.env
