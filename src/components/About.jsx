@@ -4,76 +4,120 @@ import "./About.css";
 const About = () => {
 
 
-const offerings = [
+const aboutCards=[
 
 {
-title:"Career Counseling",
-desc:"Expert guidance to help students choose the right medical career path."
+title:"University Selection",
+desc:"We help students choose the right medical universities.",
+image:"/about/university.png"
 },
 
 {
-title:"Admissions Assistance",
-desc:"Complete support for university applications and admission process."
+title:"Admission Support",
+desc:"We support students with complete admission process across global universities.",
+image:"/about/admission.png"
 },
 
 {
 title:"Visa Assistance",
-desc:"Professional guidance to make your visa journey simple and smooth."
+desc:"Stress-free visa guidance and processing support for students.",
+image:"/about/visa.png"
 },
 
 {
-title:"Travel Assistance",
-desc:"Support with travel planning and reaching your university destination."
-},
-
-{
-title:"Local Assistance",
-desc:"On-ground support for students after reaching their destination."
-},
-
-{
-title:"Scholarship Guidance",
-desc:"Helping students explore scholarship opportunities."
-},
-
-{
-title:"Internship Support",
-desc:"Guidance for internships and career growth opportunities."
-},
-
-{
-title:"24x7 Student Support",
-desc:"Continuous assistance whenever students need help."
+title:"Student Support",
+desc:"Support before and after reaching your destination.",
+image:"/about/student.png"
 }
 
 ];
 
 
 
-return (
+
+
+const offerings=[
+
+{
+title:"Career Counseling",
+desc:"Expert one-on-one counselling to guide students towards the right medical career.",
+image:"/offerings/counseling.png"
+},
+
+{
+title:"FMGE/NEXT Preparation",
+desc:"Dedicated preparation support for FMGE/NEXT examination.",
+image:"/offerings/admission.png"
+},
+
+{
+title:"Lifelong Health Insurance",
+desc:"Health insurance support for students during their journey.",
+image:"/offerings/visa.png"
+},
+
+{
+title:"Travel Assistance",
+desc:"Complete travel support to reach selected university destinations.",
+image:"/offerings/travel.png"
+},
+
+{
+title:"Local Assistance",
+desc:"Local mentors and doctors provide academic and daily-life support.",
+image:"/offerings/local.png"
+},
+
+{
+title:"Scholarship Guidance",
+desc:"Guidance for students looking for scholarship opportunities.",
+image:"/offerings/scholarship.png"
+},
+
+{
+title:"Internship Support",
+desc:"Support for internships and future career opportunities.",
+image:"/offerings/internship.png"
+},
+
+{
+title:"24x7 Student Support",
+desc:"Dedicated support system available throughout your journey.",
+image:"/offerings/support.png"
+}
+
+
+];
+
+
+
+
+
+return(
+
 
 <section
-id="about"
 className="about-section"
+id="about"
 >
 
 
-<div className="about-top">
 
 
-
-<div className="about-left">
-
+{/* ABOUT HEADER */}
 
 <span className="section-tag">
+
 ABOUT US
+
 </span>
 
 
 
-<h2>
+<h2 className="about-title">
 
 Your Trusted Partner For
+
 <span>
  Global Medical Education
 </span>
@@ -83,22 +127,35 @@ Your Trusted Partner For
 
 
 
+
+
+
+<div className="about-container">
+
+
+
+
+
+{/* LEFT SIDE */}
+
+
+<div className="about-left">
+
+
 <p>
 
 UpBrainiacs helps students achieve their dream
-of studying abroad through personalized counselling,
-university selection, admission support and visa guidance.
+of studying abroad through expert counselling,
+university selection, admission and visa support.
 
 </p>
-
 
 
 
 <p>
 
-We simplify every step of the journey —
-from choosing the right country to securing admission
-into international medical universities.
+We simplify the complete journey from selecting
+the country to starting your medical education abroad.
 
 </p>
 
@@ -106,67 +163,47 @@ into international medical universities.
 
 
 
-<div className="about-points">
+<div className="about-grid">
 
 
-<div>
+{
 
-<h3>
-University Selection
-</h3>
-
-<p>
-Choose the right university according to your goals.
-</p>
-
-</div>
+aboutCards.map((item,index)=>(
 
 
+<div
+className="about-card"
+key={index}
+>
 
 
-<div>
+<img
 
-<h3>
-Admission Support
-</h3>
+src={item.image}
 
-<p>
-Complete application and documentation assistance.
-</p>
+alt={item.title}
 
-</div>
-
+/>
 
 
 
 <div>
 
-<h3>
-Visa Assistance
-</h3>
-
-<p>
-Smooth visa process with expert guidance.
-</p>
-
-</div>
-
-
-
-
-<div>
 
 <h3>
-Student Support
+
+{item.title}
+
 </h3>
 
+
+
 <p>
-Support before and after your journey.
+
+{item.desc}
+
 </p>
 
-</div>
-
-
 
 </div>
 
@@ -175,18 +212,50 @@ Support before and after your journey.
 </div>
 
 
+))
+
+}
+
+
+</div>
+
+
+</div>
 
 
 
+
+
+
+
+
+
+
+{/* RIGHT IMAGE */}
 
 
 <div className="about-right">
 
 
-<div className="logo-box">
+<div className="main-image-box">
+
 
 
 <img
+
+className="main-image"
+
+src="/about/about-main.png"
+
+alt="Medical Education"
+
+/>
+
+
+
+<img
+
+className="corner-logo"
 
 src="/ub-logo.png"
 
@@ -195,15 +264,18 @@ alt="UpBrainiacs Logo"
 />
 
 
-</div>
-
-
 
 </div>
 
 
+</div>
+
+
+
+
 
 </div>
+
 
 
 
@@ -220,13 +292,17 @@ alt="UpBrainiacs Logo"
 
 
 <h2>
+
 Our Offerings
+
 </h2>
 
 
 
 
+
 <div className="offer-grid">
+
 
 
 {
@@ -243,22 +319,29 @@ key={index}
 >
 
 
-<div className="offer-icon">
 
-+
+<img
 
-</div>
+src={item.image}
+
+alt={item.title}
+
+/>
 
 
 
 <h3>
+
 {item.title}
+
 </h3>
 
 
 
 <p>
+
 {item.desc}
+
 </p>
 
 
@@ -266,8 +349,8 @@ key={index}
 </div>
 
 
-
 ))
+
 
 }
 
@@ -286,10 +369,11 @@ key={index}
 </section>
 
 
-);
+)
 
 
-};
+}
+
 
 
 export default About;

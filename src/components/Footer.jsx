@@ -113,9 +113,7 @@ const Footer = () => {
 
 
 
-          <a href="/#services">
-            Services
-          </a>
+
 
 
 
@@ -201,7 +199,7 @@ const Footer = () => {
 
       className="whatsapp-btn"
 
-      href="https://wa.me/9170076070201"
+      href="https://wa.me/919236488649"
 
       target="_blank"
 
