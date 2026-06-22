@@ -1,14 +1,24 @@
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-# Connection string (update username/password if needed)
-DATABASE_URL = "mysql+mysqlconnector://upbrainiacs_user:securepass@localhost:3306/upbrainiacs"
+load_dotenv()
 
-# Engine: manages connection
-engine = create_engine(DATABASE_URL)
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-# Session: used in routers to query DB
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL is not set in .env file")
 
-# Base: used by models to define tables
+engine = create_engine(
+    DATABASE_URL,
+    pool_pre_ping=True
+)
+
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+)
+
 Base = declarative_base()
