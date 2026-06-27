@@ -265,7 +265,7 @@ padding:100px 8%;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:50px;
-align-items:start;
+align-items:stretch;
 background:#f7f8fb;
 }
 
@@ -483,4 +483,24 @@ min-width:250px;
 padding:20px 15px;
 }
 
+}
+
+.country-whatsapp{
+display:flex;
+align-items:center;
+justify-content:center;
+width:100%;
+margin-top:18px;
+padding:15px;
+background:#25D366;
+color:white;
+font-weight:700;
+font-size:17px;
+border-radius:12px;
+text-decoration:none;
+transition:.3s ease;
+}
+
+.country-whatsapp:hover{
+transform:translateY(-3px);
 }

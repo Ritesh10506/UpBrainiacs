@@ -31,10 +31,103 @@
 .stat-card h2{
   color:#d10000;
   font-size:42px;
+  font-weight:800;
 }
 
 .stat-card p{
   margin-top:10px;
   color:#555;
   font-size:18px;
+  word-wrap:break-word;
+  overflow-wrap:break-word;
+}
+
+/* =========================
+   TABLET (≤ 1024px)
+   2 columns instead of 4
+========================= */
+
+@media(max-width:1024px){
+
+  .stats-section{
+    padding:70px 6%;
+  }
+
+  .stats-container{
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+  }
+
+  .stat-card{
+    padding:36px 28px;
+  }
+
+  .stat-card h2{
+    font-size:40px;
+  }
+
+  .stat-card p{
+    font-size:17px;
+  }
+}
+
+/* =========================
+   MOBILE (≤ 600px)
+   2 columns, numbers stay big
+========================= */
+
+@media(max-width:600px){
+
+  .stats-section{
+    padding:48px 5%;
+  }
+
+  .stats-container{
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+
+  .stat-card{
+    padding:28px 14px;
+    border-radius:18px;
+  }
+
+  .stat-card:hover{
+    transform:translateY(-4px);
+  }
+
+  .stat-card h2{
+    font-size:36px;
+    letter-spacing:-0.5px;
+  }
+
+  .stat-card p{
+    margin-top:8px;
+    font-size:14px;
+    line-height:1.4;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (≤ 380px)
+========================= */
+
+@media(max-width:380px){
+
+  .stats-container{
+    gap:12px;
+  }
+
+  .stat-card{
+    padding:22px 10px;
+    border-radius:16px;
+  }
+
+  .stat-card h2{
+    font-size:30px;
+  }
+
+  .stat-card p{
+    font-size:12.5px;
+  }
 }
