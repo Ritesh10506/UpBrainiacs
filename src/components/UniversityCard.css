@@ -167,47 +167,76 @@ flex:1;
 
 }
 
-/* MOBILE */
+/* MOBILE — tightened spacing to reduce scroll length */
 
 @media(max-width:768px){
 
 .university-card{
-padding:20px;
-gap:20px;
+padding:12px;
+gap:10px;
+margin-bottom:16px;
+border-radius:16px;
 }
 
 .university-image{
-height:200px;
+height:130px;
+border-radius:12px;
 }
 
 .university-content h2{
-font-size:24px;
+font-size:17px;
+margin-bottom:6px;
 text-align:center;
 
-line-height:1.3;
+line-height:1.25;
 word-break:break-word;
 }
 
 .university-content p{
-font-size:15px;
-line-height:1.7;
+font-size:12px;
+line-height:1.45;
+margin-bottom:10px;
 text-align:center;
 }
 
 .university-details{
-grid-template-columns:1fr;
+grid-template-columns:repeat(2,1fr);
+gap:6px;
+}
+
+.detail-item{
+padding:7px;
+border-radius:10px;
+}
+
+.detail-item strong{
+font-size:10.5px;
+margin-bottom:2px;
+}
+
+.detail-item span{
+font-size:11.5px;
 }
 
 .university-sidebar{
-flex-direction:column;
+flex-direction:row;
+gap:8px;
+margin-top:8px;
 }
 
 .info-box{
-padding:15px;
+padding:8px;
+flex:1;
+border-radius:12px;
+}
+
+.info-box span{
+font-size:10px;
+margin-bottom:3px;
 }
 
 .info-box h3{
-font-size:20px;
+font-size:14px;
 }
 
 }
@@ -217,26 +246,59 @@ font-size:20px;
 @media(max-width:480px){
 
 .university-card{
-padding:15px;
+padding:10px;
+margin-bottom:12px;
+border-radius:14px;
 }
 
 .university-image{
-height:170px;
+height:115px;
+border-radius:10px;
 }
 
 .university-content h2{
-font-size:21px;
+font-size:16px;
 
-line-height:1.3;
+line-height:1.25;
 word-break:break-word;
 }
 
 .university-content p{
-font-size:14px;
+font-size:11.5px;
+margin-bottom:8px;
+}
+
+.university-details{
+gap:5px;
+}
+
+.detail-item{
+padding:6px;
+}
+
+.detail-item strong{
+font-size:10px;
+}
+
+.detail-item span{
+font-size:11px;
+}
+
+.university-sidebar{
+flex-direction:row;
+gap:6px;
+}
+
+.info-box{
+padding:7px;
+}
+
+.info-box span{
+font-size:9px;
 }
 
 .info-box h3{
-font-size:18px;
+font-size:13px;
 }
 
 }
