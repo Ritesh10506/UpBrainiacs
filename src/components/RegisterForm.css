@@ -126,6 +126,10 @@ font-size:17px;
 border-bottom:1px solid rgba(255,255,255,.2);
 }
 
+/* =========================
+   TABLET (≤900px)
+========================= */
+
 @media(max-width:900px){
 
 .register-container{
@@ -144,6 +148,107 @@ grid-template-columns:1fr;
 
 .submit-btn{
 grid-column:span 1;
+}
+
+}
+
+/* =========================
+   MOBILE (≤600px)
+   Compact both content block
+   and form card to cut scroll
+========================= */
+
+@media(max-width:600px){
+
+.register-section{
+min-height:auto;
+padding:40px 5%;
+}
+
+.register-container{
+gap:20px;
+}
+
+.register-content{
+padding:18px;
+border-radius:14px;
+}
+
+.register-content span{
+font-size:12px;
+letter-spacing:1.5px;
+}
+
+.register-content h1{
+font-size:24px;
+margin:10px 0;
+line-height:1.25;
+}
+
+.register-content p{
+font-size:13px;
+line-height:1.45;
+}
+
+.benefit-box{
+margin-top:14px;
+}
+
+.benefit-box div{
+padding:8px 0;
+font-size:13px;
+}
+
+.form-card{
+padding:18px;
+border-radius:14px;
+}
+
+.form-card h2{
+font-size:20px;
+margin-bottom:14px;
+}
+
+.register-form{
+gap:10px;
+}
+
+.register-form input,
+.register-form select{
+padding:11px 12px;
+font-size:13px;
+border-radius:6px;
+}
+
+.submit-btn{
+padding:13px;
+margin-top:4px;
+font-size:14px;
+}
+
+}
+
+/* =========================
+   SMALL MOBILE (≤380px)
+========================= */
+
+@media(max-width:380px){
+
+.register-content h1{
+font-size:20px;
+}
+
+.register-content p{
+font-size:12px;
+}
+
+.benefit-box div{
+font-size:12px;
+padding:6px 0;
+}
+
+.form-card h2{
+font-size:18px;
 }
 
 }

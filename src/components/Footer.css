@@ -218,6 +218,9 @@ position:fixed;
 right:25px;
 bottom:25px;
 
+width:62px;
+height:62px;
+
 display:inline-flex;
 align-items:center;
 justify-content:center;
@@ -226,12 +229,9 @@ background:#25D366;
 
 color:white !important;
 
-padding:14px 25px;
+padding:0;
 
-border-radius:50px;
-
-font-weight:700;
-font-size:15px;
+border-radius:50%;
 
 z-index:999;
 
@@ -239,6 +239,19 @@ box-shadow:
 0 10px 25px rgba(0,0,0,.3);
 
 transition:transform .3s ease;
+
+}
+
+.whatsapp-icon{
+
+font-size:28px;
+flex-shrink:0;
+
+}
+
+.whatsapp-text{
+
+display:none;
 
 }
 
@@ -317,13 +330,31 @@ max-width:100%;
 
 .footer-top{
 
-grid-template-columns:1fr;
+grid-template-columns:1fr 1fr;
 
 text-align:center;
 
-padding:50px 6%;
+padding:30px 6% 16px;
 
-gap:36px;
+gap:18px 12px;
+
+}
+
+.footer-brand{
+
+grid-column:1 / -1;
+
+}
+
+.footer-links{
+
+text-align:left;
+
+}
+
+.footer-contact{
+
+text-align:right;
 
 }
 
@@ -334,10 +365,26 @@ margin:0 auto;
 max-width:100%;
 width:100%;
 
+padding:18px;
+
 display:flex;
 flex-direction:column;
 align-items:center;
 text-align:center;
+
+}
+
+.brand-logo{
+
+font-size:30px;
+margin-bottom:8px;
+
+}
+
+.footer-brand p{
+
+font-size:13px;
+line-height:1.45;
 
 }
 
@@ -351,29 +398,58 @@ transform:none;
 
 justify-content:center;
 
-flex-wrap:wrap;
+flex-wrap:nowrap;
+
+margin-top:12px;
+
+gap:6px;
 
 }
 
 .social-icons a{
 
-padding:8px 14px;
-font-size:12px;
+padding:6px 9px;
+font-size:10.5px;
+border-radius:7px;
 
 }
 
-.footer-links,
+.footer-links{
+
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+
+}
+
 .footer-contact{
 
 display:flex;
 flex-direction:column;
-align-items:center;
+align-items:flex-end;
 
 }
 
-.footer a{
+.footer h3{
 
-margin:8px 0;
+font-size:15px;
+margin-bottom:8px;
+
+}
+
+.footer-links a,
+.footer-contact a{
+
+margin:4px 0;
+font-size:11.5px;
+
+}
+
+.footer-contact p{
+
+font-size:10.5px;
+margin-top:4px;
+text-align:right;
 
 }
 
@@ -382,8 +458,32 @@ margin:8px 0;
 right:16px;
 bottom:16px;
 
-padding:12px 18px;
-font-size:13px;
+width:48px;
+height:48px;
+
+padding:0;
+
+border-radius:50%;
+
+}
+
+.whatsapp-icon{
+
+font-size:26px;
+
+}
+
+.whatsapp-text{
+
+display:none;
+
+}
+
+.footer-bottom{
+
+padding:12px;
+
+font-size:11px;
 
 }
 
@@ -433,8 +533,16 @@ font-size:11px;
 right:12px;
 bottom:12px;
 
-padding:10px 16px;
-font-size:12px;
+width:46px;
+height:46px;
+
+padding:0;
+
+}
+
+.whatsapp-icon{
+
+font-size:22px;
 
 }
 

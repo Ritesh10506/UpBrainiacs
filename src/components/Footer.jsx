@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { FaWhatsapp } from "react-icons/fa";
 
 
 const Footer = () => {
@@ -203,9 +204,13 @@ const Footer = () => {
 
       target="_blank"
 
+      aria-label="Chat with us on WhatsApp"
+
       >
 
-      WhatsApp
+      <FaWhatsapp className="whatsapp-icon" />
+
+      <span className="whatsapp-text">WhatsApp</span>
 
       </a>
 
