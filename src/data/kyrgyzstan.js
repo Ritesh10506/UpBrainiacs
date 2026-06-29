@@ -87,7 +87,7 @@ const kyrgyzstanData = {
     {
       name: "Osh State University",
       image: osh,
-      seats: "30000+",
+      seats: "300+",
       fee: "$3500 / Year",
       established: "1951",
       type: "Government University",
@@ -101,7 +101,7 @@ const kyrgyzstanData = {
     {
       name: "Jalalabad State University",
       image: jalalabadState,
-      seats: "12000+",
+      seats: "1200+",
       fee: "$3800 / Year",
       established: "1993",
       type: "Government University",
@@ -115,7 +115,7 @@ const kyrgyzstanData = {
     {
       name: "Jalalabad International University",
       image: jalalabadInternational,
-      seats: "5000+",
+      seats: "500+",
       fee: "$4000 / Year",
       established: "1993",
       type: "Private University",
@@ -129,7 +129,7 @@ const kyrgyzstanData = {
     {
       name: "Osh International Medical University",
       image: oshInternational,
-      seats: "2500+",
+      seats: "250+",
       fee: "$3500 / Year",
       established: "2019",
       type: "Private Medical University",
@@ -143,7 +143,7 @@ const kyrgyzstanData = {
     {
       name: "Central Asian International Medical University",
       image: centralAsian,
-      seats: "4000+",
+      seats: "400+",
       fee: "$3600 / Year",
       established: "2004",
       type: "Private Medical University",
@@ -157,7 +157,7 @@ const kyrgyzstanData = {
     {
       name: "Kyrgyz Russian Slavic University",
       image: kyrgyzRussianSlavic,
-      seats: "10000+",
+      seats: "1000+",
       fee: "$4500 / Year",
       established: "1993",
       type: "Government University",

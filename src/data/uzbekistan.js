@@ -86,7 +86,7 @@ const uzbekistanData = {
     {
       name: "Tashkent Medical Academy",
       image: tashkentMedical,
-      seats: "8000+",
+      seats: "800+",
       fee: "$3800 / Year",
       established: "2005",
       type: "Government Medical Academy",
@@ -100,7 +100,7 @@ const uzbekistanData = {
     {
       name: "Samarkand State Medical University",
       image: samarkandState,
-      seats: "17000+",
+      seats: "1700+",
       fee: "$3500 / Year",
       established: "1930",
       type: "Government University",
@@ -114,7 +114,7 @@ const uzbekistanData = {
     {
       name: "Bukhara State Medical Institute",
       image: bukharaState,
-      seats: "5000+",
+      seats: "500+",
       fee: "$3500 / Year",
       established: "1990",
       type: "Government Institute",
@@ -128,7 +128,7 @@ const uzbekistanData = {
     {
       name: "Andijan State Medical Institute",
       image: andijanState,
-      seats: "9000+",
+      seats: "900+",
       fee: "$3200 / Year",
       established: "1955",
       type: "Government Institute",
@@ -142,7 +142,7 @@ const uzbekistanData = {
     {
       name: "Fergana Medical Institute of Public Health",
       image: ferganaMedical,
-      seats: "4000+",
+      seats: "400+",
       fee: "$3600 / Year",
       established: "1992",
       type: "Government Institute",
