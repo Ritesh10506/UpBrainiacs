@@ -1,5 +1,5 @@
-// Poland Images
-import hero from "../assets/countries/poland/hero.jpg";
+// Poland hero image lives in /public/countries, referenced directly (not imported)
+const hero = "/countries/poland.jpg";
 
 // Shared / Common Images (used across all countries)
 import enquiryImage from "../assets/common/enquiry-form.jpg";

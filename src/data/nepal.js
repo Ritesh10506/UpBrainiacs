@@ -1,5 +1,5 @@
-// Nepal Images
-import hero from "../assets/countries/nepal/hero.jpg";
+// Nepal hero image lives in /public/countries, referenced directly (not imported)
+const hero = "/countries/nepal.jpg";
 
 // Shared / Common Images (used across all countries)
 import enquiryImage from "../assets/common/enquiry-form.jpg";

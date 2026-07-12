@@ -5,6 +5,7 @@ import kazakhstanData from "./kazakhstan";
 import romaniaData from "./romania";
 import nepalData from "./nepal";
 import polandData from "./poland";
+import uzbekistanData from "./uzbekistan";
 
 
 const countriesData = {
