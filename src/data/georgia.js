@@ -23,6 +23,11 @@ import uog from "../assets/universities/georgia/university-of-georgia.jpg";
 import seu from "../assets/universities/georgia/seu.jpg";
 import david from "../assets/universities/georgia/david-tvildiani.jpg";
 import newVision from "../assets/universities/georgia/new-vision.jpg";
+// New additions
+import batumi from "../assets/universities/georgia/batumi.jpg";
+import europeanUniversity from "../assets/universities/georgia/european-university.jpg";
+import gruni from "../assets/universities/georgia/gruni.jpg";
+import ciu from "../assets/universities/georgia/ciu.jpg";
 
 const georgiaData = {
   countryName: "Georgia",
@@ -152,6 +157,62 @@ const georgiaData = {
       recognition: "NMC & WHO Recognized",
       description:
         "A highly preferred destination for international students offering innovative teaching methods, digital learning platforms and advanced clinical training."
+    },
+    {
+      name: "Batumi Shota Rustaveli State University",
+      image: batumi,
+      seats: "Rolling admissions (fall + spring intake, no fixed quota)",
+      fee: "~$4000-5000 / Year",
+      established: "~1935 (disputed across sources: 1893-1945)",
+      type: "Public / State University",
+      location: "Batumi, Adjara, Georgia",
+      duration: "6 Years (5 academic + 1 year internship)",
+      medium: "English (Georgian also taught in clinical years)",
+      recognition: "NMC, WHO, UNESCO & WFME",
+      description:
+        "Located on Georgia's Black Sea coast in Batumi, this public university traces its roots to a 1935 teacher-training institute. It's one of the more budget-friendly Georgian options, with admissions handled on a rolling basis across two intakes a year rather than a fixed annual quota."
+    },
+    {
+      name: "European University, Tbilisi",
+      image: europeanUniversity,
+      seats: "Not publicly fixed (available for Indian students)",
+      fee: "~$5000-5900 / Year",
+      established: "~1995-2013 (rebranded from European Teaching University)",
+      type: "Private University",
+      location: "Tbilisi, Georgia",
+      duration: "6 Years (5 + 1 internship)",
+      medium: "English",
+      recognition: "NMC, WHO, WFME, FAIMER & ECFMG",
+      description:
+        "A private Tbilisi university with one of the broader recognition profiles in Georgia, including ECFMG and FAIMER, which can matter for students later exploring US licensing pathways. Fee estimates vary noticeably by source, so current figures should be confirmed directly."
+    },
+    {
+      name: "Grigol Robakidze University (GRUNI)",
+      image: gruni,
+      seats: "Not publicly disclosed",
+      fee: "~$5000-5500 / Year",
+      established: "1992 (renamed 1995)",
+      type: "Private University",
+      location: "Tbilisi, with a Batumi campus",
+      duration: "6 Years",
+      medium: "English",
+      recognition: "NMC, WHO & WFME",
+      description:
+        "GRUNI operates campuses in both Tbilisi and Batumi, giving students a choice between city life and a coastal setting. It follows the standard six-year, English-medium MBBS structure common across Georgian universities."
+    },
+    {
+      name: "Caucasus International University (CIU)",
+      image: ciu,
+      seats: "2,850+ international medical students overall (no fixed annual quota)",
+      fee: "~$6000 / Year",
+      established: "1995",
+      type: "Private University",
+      location: "Tbilisi, Georgia (Saburtalo district)",
+      duration: "6 Years (12 semesters, 360 ECTS)",
+      medium: "English (Georgian also taught)",
+      recognition: "NMC, WHO, WFME, ECFMG, FAIMER & MCC (Canada)",
+      description:
+        "CIU has one of the largest international student bodies among Georgian medical universities and one of the most comprehensive recognition lists in this compilation, including Canada's MCC, broadening potential pathways beyond India."
     }
   ],
 

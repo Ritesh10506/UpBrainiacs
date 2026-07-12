@@ -40,3 +40,4 @@ backend/.env
 # Frontend env
 
 frontend/vite-project/.env
+.idea/

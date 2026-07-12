@@ -3,7 +3,9 @@ import kyrgyzstanData from "./kyrgyzstan";
 import russiaData from "./russia";
 import kazakhstanData from "./kazakhstan";
 import romaniaData from "./romania";
-import uzbekistanData from "./uzbekistan";
+import nepalData from "./nepal";
+import polandData from "./poland";
+
 
 const countriesData = {
   georgia: georgiaData,
@@ -12,6 +14,8 @@ const countriesData = {
   kazakhstan:kazakhstanData,
   romania:romaniaData,
   uzbekistan:uzbekistanData,
+  nepal: nepalData,
+  poland: polandData,
 };
 
 export default countriesData;
