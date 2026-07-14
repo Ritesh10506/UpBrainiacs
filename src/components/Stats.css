@@ -1,144 +1,163 @@
-.stats-section{
-  padding:0 8% 100px;
-  background:#f8f9fb;
-  position:relative;
+/* =========================
+   STATS SECTION
+========================= */
+
+.stats-section {
+  background: #ffffff;
+  padding: 20px 8%;
 }
 
-.stats-container{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:25px;
-
-  /* Pulls the whole grid upward so the top half of each
-     card overlaps the hero section above it */
-  margin-top:-90px;
-  position:relative;
-  z-index:5;
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
 }
 
-.stat-card{
-  background:white;
-
-  border-radius:20px;
-
-  padding:40px;
-
-  text-align:center;
-
-  box-shadow:
-  0 10px 30px rgba(0,0,0,.08);
-
-  transition:.3s;
+.stat-card {
+  position: relative;
+  text-align: center;
+  padding: 12px 20px;
+  background: transparent;
+  transition: 0.3s ease;
 }
 
-.stat-card:hover{
-  transform:translateY(-10px);
+/* Vertical Divider */
+
+.stat-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 75px;
+  background: #dddddd;
 }
 
-.stat-card h2{
-  color:#d10000;
-  font-size:42px;
-  font-weight:800;
+.stat-card:hover {
+  transform: translateY(-4px);
 }
 
-.stat-card p{
-  margin-top:10px;
-  color:#555;
-  font-size:18px;
-  word-wrap:break-word;
-  overflow-wrap:break-word;
+.stat-card h2 {
+  font-size: 56px;
+  font-weight: 800;
+  color: #d10000;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.5;
 }
 
 /* =========================
-   TABLET (≤ 1024px)
-   2 columns instead of 4
+   TABLET
 ========================= */
 
-@media(max-width:1024px){
+@media (max-width: 1024px) {
 
-  .stats-section{
-    padding:0 6% 70px;
+  .stats-section {
+    padding: 18px 6%;
   }
 
-  .stats-container{
-    grid-template-columns:repeat(2,1fr);
-    gap:24px;
-    margin-top:-70px;
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 35px;
+    column-gap: 20px;
   }
 
-  .stat-card{
-    padding:36px 28px;
+  .stat-card {
+    padding: 12px 15px;
   }
 
-  .stat-card h2{
-    font-size:40px;
+  .stat-card h2 {
+    font-size: 46px;
   }
 
-  .stat-card p{
-    font-size:17px;
-  }
-}
-
-/* =========================
-   MOBILE (≤ 600px)
-   2 columns, numbers stay big
-========================= */
-
-@media(max-width:600px){
-
-  .stats-section{
-    padding:0 4% 36px;
+  .stat-card p {
+    font-size: 16px;
   }
 
-  .stats-container{
-    grid-template-columns:repeat(4,1fr);
-    gap:8px;
-    margin-top:-38px;
+  /* Remove divider after second card */
+
+  .stat-card:nth-child(2)::after,
+  .stat-card:last-child::after {
+    display: none;
   }
 
-  .stat-card{
-    padding:14px 6px;
-    border-radius:12px;
-  }
-
-  .stat-card:hover{
-    transform:translateY(-4px);
-  }
-
-  .stat-card h2{
-    font-size:18px;
-    letter-spacing:-0.5px;
-  }
-
-  .stat-card p{
-    margin-top:4px;
-    font-size:9px;
-    line-height:1.25;
+  .stat-card::after {
+    height: 65px;
   }
 }
 
 /* =========================
-   SMALL MOBILE (≤ 380px)
+   MOBILE
 ========================= */
 
-@media(max-width:380px){
+@media (max-width: 768px) {
 
-  .stats-container{
-    gap:6px;
-    margin-top:-32px;
+  .stats-section {
+    padding: 16px 5%;
   }
 
-  .stat-card{
-    padding:10px 4px;
-    border-radius:10px;
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 18px;
   }
 
-  .stat-card h2{
-    font-size:15px;
+  .stat-card {
+    padding: 8px;
   }
 
-  .stat-card p{
-    font-size:7.5px;
-    margin-top:3px;
+  .stat-card h2 {
+    font-size: 34px;
+  }
+
+  .stat-card p {
+    font-size: 14px;
+  }
+
+  .stat-card::after {
+    height: 50px;
+  }
+
+  .stat-card:nth-child(2)::after,
+  .stat-card:last-child::after {
+    display: none;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .stats-section {
+    padding: 12px 4%;
+  }
+
+  .stats-container {
+    gap: 22px 12px;
+  }
+
+  .stat-card {
+    padding: 6px;
+  }
+
+  .stat-card h2 {
+    font-size: 28px;
+  }
+
+  .stat-card p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .stat-card::after {
+    height: 42px;
   }
 }
