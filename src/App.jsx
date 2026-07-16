@@ -2,16 +2,18 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import CountryPage from "./pages/CountryPage";
-import ScrollToTop from "./components/ScrollToTop";   // NEW — add this import
+import About from "./pages/About";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <>
-      <ScrollToTop />   {/* NEW — add this line */}
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mbbs-in/:country" element={<CountryPage />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </>
   );

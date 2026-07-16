@@ -1,0 +1,323 @@
+.benefits-section {
+  position: relative;
+  background: #fff;
+  padding: 100px 4% 80px;
+  overflow: hidden;
+}
+
+/* Big background image behind the whole section */
+.benefits-bg {
+  position: absolute;
+  inset: 0;
+  background: url("/about/about-main.png") center/cover no-repeat;
+  z-index: 0;
+}
+
+.benefits-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.85) 40%,
+    #ffffff 85%
+  );
+  z-index: 1;
+}
+
+.benefits-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Header text */
+.benefits-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.benefits-eyebrow {
+  display: block;
+  color: #d10000;
+  font-weight: 700;
+  letter-spacing: 4px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.benefits-brandline {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.brand-up {
+  color: #111;
+}
+
+.brand-brainiacs {
+  color: #d10000;
+}
+
+.benefits-subhead {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.benefits-para {
+  color: #555;
+  font-size: 15.5px;
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.benefits-divider {
+  width: 60px;
+  height: 3px;
+  background: #d10000;
+  border-radius: 6px;
+  margin: 22px auto 0;
+}
+
+/* Scroll track */
+.benefits-track {
+  position: relative;
+}
+
+.benefits-pin {
+  position: relative;
+}
+
+/* Stack of merging glass rows */
+.benefits-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--row-gap, 10px);
+  height: 100%;
+}
+
+.benefit-row {
+  position: relative;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transform: scale(0.96);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.55s ease, height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Animated glass shimmer sweep */
+.benefit-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: glassShine 6s ease-in-out infinite;
+  animation-delay: inherit;
+  pointer-events: none;
+}
+
+@keyframes glassShine {
+  0% {
+    left: -60%;
+  }
+  35% {
+    left: 130%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+/* Collapsed slim header row */
+.benefit-row.is-collapsed {
+  height: var(--collapsed-h, 56px);
+  padding: 0 26px;
+  display: flex;
+  align-items: center;
+}
+
+.benefit-row.is-collapsed .benefit-row-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.benefit-row.is-collapsed .benefit-num {
+  font-size: 15px;
+  color: #d10000;
+  font-weight: 800;
+}
+
+.benefit-row.is-collapsed h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+
+.benefit-row.is-collapsed .benefit-thumb {
+  margin-left: auto;
+  width: 44px;
+  height: 34px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.benefit-row.is-collapsed .benefit-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Active, elevated expanded glass row */
+.benefit-row.is-active {
+  height: var(--expanded-h, 440px);
+  padding: 30px 34px 34px;
+  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-row.is-active .benefit-row-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.benefit-row.is-active .benefit-num {
+  font-size: 34px;
+  font-weight: 900;
+  color: #d10000;
+  line-height: 1;
+}
+
+.benefit-row.is-active h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111;
+}
+
+.benefit-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+  min-height: 0;
+}
+
+.benefit-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.benefit-desc {
+  color: #444;
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+/* Mobile — stacked single column, static final state, no pin/scale animation */
+@media (max-width: 900px) {
+  .benefits-section {
+    padding: 60px 6% 50px;
+  }
+
+  .benefits-brandline {
+    font-size: 32px;
+  }
+
+  .benefits-subhead {
+    font-size: 18px;
+  }
+
+  .benefits-para {
+    font-size: 14px;
+  }
+
+  .benefits-track {
+    height: auto !important;
+  }
+
+  .benefits-pin {
+    position: static !important;
+    height: auto !important;
+  }
+
+  .benefits-stack {
+    gap: 12px;
+  }
+
+  .benefit-row {
+    transform: none !important;
+  }
+
+  .benefit-row.is-active {
+    height: auto;
+    padding: 20px;
+  }
+
+  .benefit-image {
+    height: 200px;
+    flex: none;
+  }
+
+  .benefit-row.is-active .benefit-num {
+    font-size: 24px;
+  }
+
+  .benefit-row.is-active h3 {
+    font-size: 18px;
+  }
+}

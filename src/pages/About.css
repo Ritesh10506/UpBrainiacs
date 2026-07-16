@@ -1,0 +1,9 @@
+.about-hero{
+  padding:120px 8% 60px;
+  text-align:center;
+}
+.about-hero h1{
+  font-size:42px;
+  font-weight:900;
+  color:#111;
+}
