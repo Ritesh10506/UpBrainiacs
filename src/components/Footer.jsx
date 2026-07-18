@@ -21,10 +21,34 @@ const Footer = () => {
 
             {/* Social Icons */}
             <div className="social-icons">
-              <a href="#">Instagram</a>
-              <a href="#">Facebook</a>
-              <a href="#">LinkedIn</a>
-              <a href="#">YouTube</a>
+              <a
+                href="https://www.instagram.com/upbrainiacs_global/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.facebook.com/share/1CjuieCvS7/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://youtube.com/@upbrainiacs?si=-KD9r3wHTTc8ONpJ"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTube
+              </a>
             </div>
           </div>
         </div>
@@ -48,8 +72,12 @@ const Footer = () => {
             Sector 39, Gurgaon Sector 45,<br />
             Haryana, India, 122003
           </p>
-          <p>📞 +91 6394045804</p>
-          <p>✉️ info@upbrainiacs.com</p>
+          <p>
+            📞 <a href="tel:+916394045804">+91 6394045804</a>
+          </p>
+          <p>
+            ✉️ <a href="mailto:info@upbrainiacs.com">info@upbrainiacs.com</a>
+          </p>
         </div>
       </div>
 

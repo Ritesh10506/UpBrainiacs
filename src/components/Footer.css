@@ -344,3 +344,16 @@
     font-size: 22px;
   }
 }
+/* Make phone/email links sit inline next to their emoji, not as blocks */
+.footer-contact p a {
+  display: inline;
+  color: inherit;
+  text-decoration: none;
+  margin: 0;
+  transition: color 0.2s;
+}
+
+.footer-contact p a:hover {
+  color: #d10000;
+  transform: none;
+}

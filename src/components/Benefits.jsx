@@ -61,9 +61,10 @@ const GAP = 14;
 const BLUR_AMOUNT = 3;
 const DURATION = 0.35;
 
-// Mobile accordion tuning
-const MOBILE_COLLAPSED_HEIGHT = 64;
-const MOBILE_OPEN_HEIGHT = 320;
+// Mobile bar tuning (same visual style, smaller)
+const MOBILE_BAR_WIDTH = 74;
+const MOBILE_BAR_HEIGHT = 240;
+const MOBILE_GAP = 10;
 
 const isMobile = () =>
   typeof window !== "undefined" && window.innerWidth <= 900;
@@ -82,6 +83,18 @@ const Benefits = () => {
     };
   }, []);
 
+  // Lock background scroll while the mobile modal is open
+  useEffect(() => {
+    if (mobile && open !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobile, open]);
+
   // Desktop — hovering a card opens it directly, no click needed
   const handleEnter = (i) => {
     if (mobile) return;
@@ -93,17 +106,17 @@ const Benefits = () => {
     setOpen(null);
   };
 
-  // Mobile — tap to open/close since there's no hover
+  // Mobile — tap opens the fullscreen centered modal
   const handleTap = (i) => {
     if (!mobile) return;
-    setOpen((prev) => (prev === i ? null : i));
+    setOpen(i);
   };
+
+  const closeModal = () => setOpen(null);
 
   const sizeFor = (i) => {
     if (mobile) {
-      return open === i
-        ? { width: "100%", height: MOBILE_OPEN_HEIGHT }
-        : { width: "100%", height: MOBILE_COLLAPSED_HEIGHT };
+      return { width: MOBILE_BAR_WIDTH, height: MOBILE_BAR_HEIGHT };
     }
     return open === i
       ? { width: OPEN_WIDTH, height: OPEN_HEIGHT }
@@ -111,6 +124,8 @@ const Benefits = () => {
   };
 
   const barTransition = `width ${DURATION}s ease-in-out, height ${DURATION}s ease-in-out, filter ${DURATION}s ease-in-out, opacity ${DURATION}s ease-in-out`;
+
+  const openItem = open !== null ? benefits[open] : null;
 
   return (
     <section className="benefits-section" id="benefits">
@@ -136,20 +151,18 @@ const Benefits = () => {
 
         <div
           className={`mc-container ${mobile ? "mc-mobile" : ""}`}
-          style={{ gap: mobile ? 12 : GAP }}
+          style={{ gap: mobile ? MOBILE_GAP : GAP }}
           onMouseLeave={handleContainerLeave}
         >
           {benefits.map((item, i) => {
             const { width, height } = sizeFor(i);
+            const isOpen = !mobile && open === i;
             const blurred = !mobile && open !== null && i !== open;
-            const isOpen = open === i;
 
             return (
               <div
                 key={item.num}
-                className={`mc-bar ${isOpen ? "mc-bar-open" : ""} ${
-                  mobile ? "mc-bar-mobile" : ""
-                }`}
+                className={`mc-bar ${isOpen ? "mc-bar-open" : ""}`}
                 onMouseEnter={() => handleEnter(i)}
                 onClick={() => handleTap(i)}
                 style={{
@@ -159,49 +172,23 @@ const Benefits = () => {
                   zIndex: isOpen ? 3 : 2,
                   filter: blurred ? `blur(${BLUR_AMOUNT}px)` : "none",
                   opacity: blurred ? 0.55 : 1,
-                  backgroundImage: mobile ? "none" : `url(${item.image})`,
+                  backgroundImage: `url(${item.image})`,
                 }}
               >
-                {mobile ? (
-                  <>
-                    <div className="mc-mobile-header">
-                      <div
-                        className="mc-mobile-thumb"
-                        style={{ backgroundImage: `url(${item.image})` }}
-                      />
-                      <span className="mc-num mc-num-mobile">{item.num}</span>
-                      <h3 className="mc-mobile-title">{item.title}</h3>
-                      <span
-                        className={`mc-chevron ${isOpen ? "mc-chevron-open" : ""}`}
-                      >
-                        ⌄
-                      </span>
-                    </div>
+                <div className="mc-overlay" />
 
-                    {isOpen && (
-                      <div className="mc-mobile-body">
-                        <p>{item.desc}</p>
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    <div className="mc-overlay" />
+                {!isOpen && (
+                  <div className="mc-collapsed-label">
+                    <span className="mc-num">{item.num}</span>
+                  </div>
+                )}
 
-                    {!isOpen && (
-                      <div className="mc-collapsed-label">
-                        <span className="mc-num">{item.num}</span>
-                      </div>
-                    )}
-
-                    {isOpen && (
-                      <div className="mc-open-content">
-                        <span className="mc-num mc-num-open">{item.num}</span>
-                        <h3>{item.title}</h3>
-                        <p>{item.desc}</p>
-                      </div>
-                    )}
-                  </>
+                {isOpen && (
+                  <div className="mc-open-content">
+                    <span className="mc-num mc-num-open">{item.num}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                  </div>
                 )}
               </div>
             );
@@ -212,6 +199,29 @@ const Benefits = () => {
           {mobile ? "Tap a card to explore." : "Hover a card to explore."}
         </p>
       </div>
+
+      {/* Mobile — fullscreen centered modal */}
+      {mobile && openItem && (
+        <div className="mc-modal-backdrop" onClick={closeModal}>
+          <div
+            className="mc-modal-card"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="mc-modal-close" onClick={closeModal}>
+              ✕
+            </button>
+            <div
+              className="mc-modal-image"
+              style={{ backgroundImage: `url(${openItem.image})` }}
+            />
+            <div className="mc-modal-body">
+              <span className="mc-num mc-num-open">{openItem.num}</span>
+              <h3>{openItem.title}</h3>
+              <p>{openItem.desc}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
