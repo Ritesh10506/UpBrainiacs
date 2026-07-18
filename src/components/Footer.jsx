@@ -1,247 +1,70 @@
 import "./Footer.css";
-import { FaWhatsapp } from "react-icons/fa";
-
+import { FaWhatsapp } from "react-icons/fa"; // WhatsApp icon
 
 const Footer = () => {
-
-
   return (
-
     <footer className="footer">
-
-
       <div className="footer-top">
 
+        {/* Brand Box */}
+        <div className="footer-brand">
+          <div className="brand-box">
+            <h2 className="brand-logo">
+              <span className="logo-up">Up</span>
+              <span className="logo-brainiacs">Brainiacs</span>
+              <span className="logo-dot">.</span>
+            </h2>
+            <p>
+              Empowering students to achieve global education dreams with expert guidance,
+              university selection and career support.
+            </p>
 
-
-        {/* BRAND SECTION */}
-
-        <div className="footer-brand brand-box">
-
-
-          <h2 className="brand-logo">
-
-            <span>Up</span>Brainiacs<b>.</b>
-
-          </h2>
-
-
-
-          <p>
-
-            Empowering students to achieve global education dreams
-            with expert guidance, university selection and career support.
-
-          </p>
-
-
-
-
-          <div className="social-icons">
-
-
-            <a
-            href="https://www.instagram.com/upbrainiacs_global/"
-            target="_blank">
-
-              Instagram
-
-            </a>
-
-
-
-            <a
-            href="https://www.facebook.com/share/1CjuieCvS7/?mibextid=wwXIfr"
-            target="_blank">
-
-              Facebook
-
-            </a>
-
-
-
-            <a
-            href="https://linkedin.com"
-            target="_blank">
-
-              LinkedIn
-
-            </a>
-
-
-
-            <a
-            href="https://youtube.com/@upbrainiacs?si=-KD9r3wHTTc8ONpJ"
-            target="_blank">
-
-              YouTube
-
-            </a>
-
-
+            {/* Social Icons */}
+            <div className="social-icons">
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">LinkedIn</a>
+              <a href="#">YouTube</a>
+            </div>
           </div>
-
-
-
         </div>
 
-
-
-
-
-
-        {/* QUICK LINKS */}
-
-
+        {/* Quick Links */}
         <div className="footer-links">
-
-
-          <h3>
-            Quick Links
-          </h3>
-
-
-
-          <a href="/">
-            Home
-          </a>
-
-
-
-          <a href="/#about">
-            About
-          </a>
-
-
-
-
-
-
-
-          <a href="/#register">
-            Registration
-          </a>
-
-
-
-          <a href="/faq">
-            FAQ
-          </a>
-
-
-
-          <a href="/vision">
-            Vision
-          </a>
-
-
+          <h3>Quick Links</h3>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/register">Registration</a>
+          <a href="/faq">FAQ</a>
+          <a href="/terms">Terms & Conditions</a>
+          <a href="/privacy">Privacy Policy</a>
         </div>
 
-
-
-
-
-
-
-        {/* CONTACT */}
-
-
+        {/* Contact */}
         <div className="footer-contact">
-
-
-          <h3>
-            Contact Us
-          </h3>
-
-
-
-          <a href="mailto:info@upbrainiacs.com">
-
-            info@upbrainiacs.com
-
-          </a>
-
-
-
-
-          <a href="tel:+916394045804">
-
-            +91 6394045804
-
-          </a>
-
-
-
-
+          <h3>Contact Us</h3>
           <p>
-
-            Study Abroad | Medical Education
-
+            9th Floor, Tower D, Unitech CyberPark,<br />
+            Sector 39, Gurgaon Sector 45,<br />
+            Haryana, India, 122003
           </p>
-
-
+          <p>📞 +91 6394045804</p>
+          <p>✉️ info@upbrainiacs.com</p>
         </div>
-
-
-
-
       </div>
 
-
-
-
-
-
-
-      {/* WHATSAPP BUTTON */}
-
-
-      <a
-
-      className="whatsapp-btn"
-
-      href="https://wa.me/919236488649"
-
-      target="_blank"
-
-      aria-label="Chat with us on WhatsApp"
-
-      >
-
-      <FaWhatsapp className="whatsapp-icon" />
-
-      <span className="whatsapp-text">WhatsApp</span>
-
-      </a>
-
-
-
-
-
-
-
+      {/* Bottom */}
       <div className="footer-bottom">
-
-
-        © 2026
-
-        <span>
-          UpBrainiacs
-        </span>
-
-        . All Rights Reserved.
-
-
+        <p>Study Abroad | Medical Education</p>
+        <p>© 2026 <span>UpBrainiacs</span>. All Rights Reserved.</p>
       </div>
 
-
-
+      {/* WhatsApp Floating Button */}
+      <a href="https://wa.me/916394045804" className="whatsapp-btn">
+        <FaWhatsapp className="whatsapp-icon" />
+      </a>
     </footer>
-
-
   );
-
 };
-
 
 export default Footer;

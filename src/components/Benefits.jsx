@@ -52,108 +52,68 @@ const benefits = [
   },
 ];
 
-// Tune these to change the feel — CSS reads the same values via CSS variables,
-// so they never fall out of sync.
-const PIN_TOP_OFFSET = 90;        // gap from top of viewport while pinned
-const SCROLL_PER_CARD = 300;      // scroll distance used to reveal each card
-const COLLAPSED_ROW_HEIGHT = 56;  // slim header height
-const EXPANDED_CARD_HEIGHT = 440; // active card height
-const ROW_GAP = 10;
+// Desktop carousel tuning
+const COLLAPSED_WIDTH = 90;
+const COLLAPSED_HEIGHT = 340;
+const OPEN_WIDTH = 560;
+const OPEN_HEIGHT = 460;
+const GAP = 14;
+const BLUR_AMOUNT = 3;
+const DURATION = 0.35;
 
-const PIN_HEIGHT =
-  (benefits.length - 1) * (COLLAPSED_ROW_HEIGHT + ROW_GAP) +
-  EXPANDED_CARD_HEIGHT +
-  ROW_GAP * 2;
+// Mobile accordion tuning
+const MOBILE_COLLAPSED_HEIGHT = 64;
+const MOBILE_OPEN_HEIGHT = 320;
+
+const isMobile = () =>
+  typeof window !== "undefined" && window.innerWidth <= 900;
 
 const Benefits = () => {
-  const trackRef = useRef(null);
-  const pinRef = useRef(null);
-  const activeIndexRef = useRef(0);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [open, setOpen] = useState(null);
+  const [mobile, setMobile] = useState(isMobile());
+  const closeTimer = useRef(0);
 
   useEffect(() => {
-    let frame = null;
-
-    const update = () => {
-      const track = trackRef.current;
-      const pin = pinRef.current;
-      if (!track || !pin) return;
-
-      // Mobile — no pinning, just show the final merged state statically
-      if (window.innerWidth <= 900) {
-        pin.style.position = "static";
-        pin.style.top = "";
-        pin.style.left = "";
-        pin.style.width = "";
-        if (activeIndexRef.current !== benefits.length - 1) {
-          activeIndexRef.current = benefits.length - 1;
-          setActiveIndex(benefits.length - 1);
-        }
-        return;
-      }
-
-      const trackRect = track.getBoundingClientRect();
-      const scrollableRange = track.offsetHeight - PIN_HEIGHT;
-      const start = trackRect.top;
-
-      if (start > PIN_TOP_OFFSET) {
-        pin.style.position = "static";
-        pin.style.top = "";
-        pin.style.left = "";
-        pin.style.width = "";
-      } else if (start > PIN_TOP_OFFSET - scrollableRange) {
-        pin.style.position = "fixed";
-        pin.style.top = `${PIN_TOP_OFFSET}px`;
-        pin.style.left = `${trackRect.left}px`;
-        pin.style.width = `${track.offsetWidth}px`;
-      } else {
-        pin.style.position = "absolute";
-        pin.style.top = `${track.offsetHeight - PIN_HEIGHT}px`;
-        pin.style.left = "0px";
-        pin.style.width = "100%";
-      }
-
-      const scrolledIntoPin = PIN_TOP_OFFSET - start;
-      const progress = Math.min(
-        Math.max(scrolledIntoPin / scrollableRange, 0),
-        1
-      );
-
-      const idx = Math.min(
-        benefits.length - 1,
-        Math.floor(progress * benefits.length)
-      );
-
-      if (idx !== activeIndexRef.current) {
-        activeIndexRef.current = idx;
-        setActiveIndex(idx);
-      }
-    };
-
-    const onScroll = () => {
-      if (frame) return;
-      frame = requestAnimationFrame(() => {
-        update();
-        frame = null;
-      });
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    update();
-
+    const onResize = () => setMobile(isMobile());
+    window.addEventListener("resize", onResize);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("resize", onResize);
+      clearTimeout(closeTimer.current);
     };
   }, []);
 
-  const trackHeight = benefits.length * SCROLL_PER_CARD + PIN_HEIGHT;
+  // Desktop — hovering a card opens it directly, no click needed
+  const handleEnter = (i) => {
+    if (mobile) return;
+    setOpen(i);
+  };
+
+  const handleContainerLeave = () => {
+    if (mobile) return;
+    setOpen(null);
+  };
+
+  // Mobile — tap to open/close since there's no hover
+  const handleTap = (i) => {
+    if (!mobile) return;
+    setOpen((prev) => (prev === i ? null : i));
+  };
+
+  const sizeFor = (i) => {
+    if (mobile) {
+      return open === i
+        ? { width: "100%", height: MOBILE_OPEN_HEIGHT }
+        : { width: "100%", height: MOBILE_COLLAPSED_HEIGHT };
+    }
+    return open === i
+      ? { width: OPEN_WIDTH, height: OPEN_HEIGHT }
+      : { width: COLLAPSED_WIDTH, height: COLLAPSED_HEIGHT };
+  };
+
+  const barTransition = `width ${DURATION}s ease-in-out, height ${DURATION}s ease-in-out, filter ${DURATION}s ease-in-out, opacity ${DURATION}s ease-in-out`;
 
   return (
     <section className="benefits-section" id="benefits">
-      {/* Big background image behind the whole section */}
       <div className="benefits-bg" />
       <div className="benefits-bg-overlay" />
 
@@ -175,59 +135,82 @@ const Benefits = () => {
         </div>
 
         <div
-          className="benefits-track"
-          ref={trackRef}
-          style={{ height: `${trackHeight}px` }}
+          className={`mc-container ${mobile ? "mc-mobile" : ""}`}
+          style={{ gap: mobile ? 12 : GAP }}
+          onMouseLeave={handleContainerLeave}
         >
-          <div
-            className="benefits-pin"
-            ref={pinRef}
-            style={{ height: `${PIN_HEIGHT}px` }}
-          >
-            <div
-              className="benefits-stack"
-              style={{
-                "--collapsed-h": `${COLLAPSED_ROW_HEIGHT}px`,
-                "--expanded-h": `${EXPANDED_CARD_HEIGHT}px`,
-                "--row-gap": `${ROW_GAP}px`,
-              }}
-            >
-              {benefits.slice(0, activeIndex + 1).map((item, index) => {
-                const isActive = index === activeIndex;
-                return (
-                  <div
-                    key={item.num}
-                    className={`benefit-row ${isActive ? "is-active" : "is-collapsed"}`}
-                    style={{ animationDelay: `${index * 0.4}s` }}
-                  >
-                    {isActive ? (
-                      <>
-                        <div className="benefit-row-head">
-                          <span className="benefit-num">{item.num}</span>
-                          <h3>{item.title}</h3>
-                        </div>
-                        <div className="benefit-body">
-                          <div className="benefit-image">
-                            <img src={item.image} alt={item.title} />
-                          </div>
-                          <p className="benefit-desc">{item.desc}</p>
-                        </div>
-                      </>
-                    ) : (
-                      <div className="benefit-row-head">
-                        <span className="benefit-num">{item.num}</span>
-                        <h3>{item.title}</h3>
-                        <div className="benefit-thumb">
-                          <img src={item.image} alt={item.title} />
-                        </div>
+          {benefits.map((item, i) => {
+            const { width, height } = sizeFor(i);
+            const blurred = !mobile && open !== null && i !== open;
+            const isOpen = open === i;
+
+            return (
+              <div
+                key={item.num}
+                className={`mc-bar ${isOpen ? "mc-bar-open" : ""} ${
+                  mobile ? "mc-bar-mobile" : ""
+                }`}
+                onMouseEnter={() => handleEnter(i)}
+                onClick={() => handleTap(i)}
+                style={{
+                  width,
+                  height,
+                  transition: barTransition,
+                  zIndex: isOpen ? 3 : 2,
+                  filter: blurred ? `blur(${BLUR_AMOUNT}px)` : "none",
+                  opacity: blurred ? 0.55 : 1,
+                  backgroundImage: mobile ? "none" : `url(${item.image})`,
+                }}
+              >
+                {mobile ? (
+                  <>
+                    <div className="mc-mobile-header">
+                      <div
+                        className="mc-mobile-thumb"
+                        style={{ backgroundImage: `url(${item.image})` }}
+                      />
+                      <span className="mc-num mc-num-mobile">{item.num}</span>
+                      <h3 className="mc-mobile-title">{item.title}</h3>
+                      <span
+                        className={`mc-chevron ${isOpen ? "mc-chevron-open" : ""}`}
+                      >
+                        ⌄
+                      </span>
+                    </div>
+
+                    {isOpen && (
+                      <div className="mc-mobile-body">
+                        <p>{item.desc}</p>
                       </div>
                     )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="mc-overlay" />
+
+                    {!isOpen && (
+                      <div className="mc-collapsed-label">
+                        <span className="mc-num">{item.num}</span>
+                      </div>
+                    )}
+
+                    {isOpen && (
+                      <div className="mc-open-content">
+                        <span className="mc-num mc-num-open">{item.num}</span>
+                        <h3>{item.title}</h3>
+                        <p>{item.desc}</p>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
+
+        <p className="benefits-hint">
+          {mobile ? "Tap a card to explore." : "Hover a card to explore."}
+        </p>
       </div>
     </section>
   );

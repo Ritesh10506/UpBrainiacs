@@ -1,568 +1,346 @@
-.footer{
-
-background:#111;
-
-color:white;
-
-position:relative;
-
+.footer {
+  background: #111;
+  color: white;
+  position: relative;
 }
-
-
 
 /* MAIN AREA */
-
-.footer-top{
-
-padding:70px 8%;
-
-display:grid;
-
-grid-template-columns:2fr 1fr 1fr;
-
-gap:50px;
-
+.footer-top {
+  padding: 50px 6%; /* reduced for compact look */
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
 }
-
-
 
 /* BRAND TRANSPARENT BOX */
-
-.brand-box{
-
-background:
-rgba(255,255,255,0.08);
-
-border:
-1px solid rgba(255,255,255,.15);
-
-backdrop-filter:
-blur(12px);
-
-padding:30px;
-
-border-radius:20px;
-
-max-width:420px;
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.3);
-
-display:flex;
-flex-direction:column;
-align-items:center;
-text-align:center;
-
+.brand-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, .15);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 420px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-
-
 
 /* LOGO */
+.brand-logo {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
 
-.brand-logo{
-
-font-size:42px;
-
-font-weight:800;
-
-letter-spacing:1px;
-
-margin-bottom:15px;
-
+  background: #fff;       /* white box */
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.brand-logo span{
-
-color:#d10000;
-
+/* Logo color split */
+.logo-up {
+  color: #d10000;   /* red */
 }
 
-.brand-logo b{
-
-color:#d10000;
-
+.logo-brainiacs {
+  color: #000;      /* black */
 }
 
-
-
-.footer-brand p{
-
-color:#ddd;
-
-line-height:1.7;
-
-font-size:16px;
-
-text-align:center;
-
+.logo-dot {
+  color: #d10000;   /* red */
 }
 
-
+.footer-brand p {
+  color: #ddd;
+  line-height: 1.7;
+  font-size: 16px;
+  text-align: center;
+}
 
 /* HEADINGS */
-
-.footer h3{
-
-font-size:22px;
-
-margin-bottom:20px;
-
+.footer h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
 }
-
-
 
 /* LINKS */
-
-.footer a{
-
-display:block;
-
-text-decoration:none;
-
-color:#ccc;
-
-margin:12px 0;
-
-transition:.3s;
-
+.footer a {
+  display: block;
+  text-decoration: none;
+  color: #ccc;
+  margin: 12px 0;
+  transition: .3s;
 }
 
-.footer a:hover{
-
-color:#ff4b4b;
-
-transform:translateX(5px);
-
+.footer a:hover {
+  color: #ff4b4b;
+  transform: translateX(5px);
 }
 
-
-
-/* =========================
-   SOCIAL ICONS — horizontal row (wraps on small screens)
-========================= */
-
-.social-icons{
-
-display:flex;
-
-flex-direction:row;
-
-flex-wrap:nowrap;
-
-align-items:center;
-
-justify-content:center;
-
-width:100%;
-
-gap:10px;
-
-margin-top:25px;
-
+/* SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  margin-top: 25px;
 }
 
-/* Override the generic .footer a block/translate behavior
-   specifically for social links, so they sit cleanly inline */
-.social-icons a{
-
-display:inline-flex;
-align-items:center;
-justify-content:center;
-
-flex:0 1 auto;
-
-border:
-1px solid #555;
-
-padding:8px 12px;
-
-border-radius:10px;
-
-font-size:12.5px;
-font-weight:600;
-white-space:nowrap;
-
-margin:0;
-
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  border: 1px solid #555;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  margin: 0;
 }
 
-.social-icons a:hover{
-
-background:#d10000;
-border-color:#d10000;
-color:white;
-transform:none;
-
+.social-icons a:hover {
+  background: #d10000;
+  border-color: #d10000;
+  color: white;
+  transform: none;
 }
-
-
 
 /* CONTACT */
-
-.footer-contact p{
-
-color:#ccc;
-
+.footer-contact p {
+  color: #ccc;
 }
 
-
-
-/* =========================
-   WHATSAPP FLOATING BUTTON
-========================= */
-
-.whatsapp-btn{
-
-position:fixed;
-
-right:25px;
-bottom:25px;
-
-width:62px;
-height:62px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-background:#25D366;
-
-color:white !important;
-line-height:0;
-
-padding:0;
-
-border-radius:50%;
-
-z-index:999;
-
-box-shadow:
-0 10px 25px rgba(0,0,0,.3);
-
-transition:transform .3s ease;
-
+/* WHATSAPP FLOATING BUTTON */
+.whatsapp-btn {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  color: white !important;
+  line-height: 0;
+  padding: 0;
+  border-radius: 50%;
+  z-index: 999;
+  box-shadow: 0 10px 25px rgba(0,0,0,.3);
+  transition: transform .3s ease;
 }
 
-.whatsapp-icon{
-
-font-size:30px;
-flex-shrink:0;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-width:100%;
-height:100%;
-
+.whatsapp-icon {
+  font-size: 30px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-/* covers cases where the icon is an SVG or <img> instead of a font icon */
 .whatsapp-icon svg,
-.whatsapp-icon img{
-
-width:60%;
-height:60%;
-display:block;
-
+.whatsapp-icon img {
+  width: 60%;
+  height: 60%;
+  display: block;
 }
 
-.whatsapp-text{
-
-display:none;
-
+.whatsapp-text {
+  display: none;
 }
 
-.whatsapp-btn:hover{
-
-transform:translateY(-5px);
-
+.whatsapp-btn:hover {
+  transform: translateY(-5px);
 }
-
-
 
 /* BOTTOM */
-
-.footer-bottom{
-
-text-align:center;
-
-padding:20px;
-
-border-top:
-1px solid rgba(255,255,255,.15);
-
-color:#aaa;
-
-font-size:14px;
-
+.footer-bottom {
+  text-align: center;
+  padding: 15px; /* reduced for compact look */
+  border-top: 1px solid rgba(255,255,255,.15);
+  color: #aaa;
+  font-size: 13px; /* slightly smaller */
 }
 
-.footer-bottom span{
-
-color:#d10000;
-
-font-weight:700;
-
+.footer-bottom span {
+  color: #d10000;
+  font-weight: 700;
 }
-
-
 
 /* =========================
    TABLET (≤ 1024px)
 ========================= */
+@media(max-width:1024px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 60px 6%;
+  }
 
-@media(max-width:1024px){
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
 
-.footer-top{
-
-grid-template-columns:1fr 1fr;
-
-gap:40px;
-
-padding:60px 6%;
-
+  .brand-box {
+    max-width: 100%;
+  }
 }
-
-.footer-brand{
-
-grid-column:1 / -1;
-
-}
-
-.brand-box{
-
-max-width:100%;
-
-}
-
-}
-
-
 
 /* =========================
    MOBILE (≤ 800px)
 ========================= */
+@media(max-width:800px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    padding: 30px 6% 16px;
+    gap: 18px 12px;
+  }
 
-@media(max-width:800px){
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
 
-.footer-top{
+  .footer-links {
+    text-align: left;
+  }
 
-grid-template-columns:1fr 1fr;
+  .footer-contact {
+    text-align: right;
+  }
 
-text-align:center;
+  .brand-box {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-padding:30px 6% 16px;
+  .brand-logo {
+    font-size: 30px;
+    margin-bottom: 8px;
+  }
 
-gap:18px 12px;
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.45;
+  }
 
+  .footer a:hover {
+    transform: none;
+  }
+
+  .social-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    gap: 6px;
+  }
+
+  .social-icons a {
+    padding: 6px 9px;
+    font-size: 10.5px;
+    border-radius: 7px;
+    flex: 0 1 auto;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .footer h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .footer-links a,
+  .footer-contact a {
+    margin: 4px 0;
+    font-size: 11.5px;
+  }
+
+  .footer-contact p {
+    font-size: 10.5px;
+    margin-top: 4px;
+    text-align: right;
+  }
+
+  .whatsapp-btn {
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .whatsapp-icon {
+    font-size: 24px;
+  }
+
+  .footer-bottom {
+    padding: 12px;
+    font-size: 11px;
+  }
 }
-
-.footer-brand{
-
-grid-column:1 / -1;
-
-}
-
-.footer-links{
-
-text-align:left;
-
-}
-
-.footer-contact{
-
-text-align:right;
-
-}
-
-.brand-box{
-
-margin:0 auto;
-
-max-width:100%;
-width:100%;
-
-padding:18px;
-
-display:flex;
-flex-direction:column;
-align-items:center;
-text-align:center;
-
-}
-
-.brand-logo{
-
-font-size:30px;
-margin-bottom:8px;
-
-}
-
-.footer-brand p{
-
-font-size:13px;
-line-height:1.45;
-
-}
-
-.footer a:hover{
-
-transform:none;
-
-}
-
-.social-icons{
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-margin-top:12px;
-
-gap:6px;
-
-}
-
-.social-icons a{
-
-padding:6px 9px;
-font-size:10.5px;
-border-radius:7px;
-flex:0 1 auto;
-
-}
-
-.footer-links{
-
-display:flex;
-flex-direction:column;
-align-items:flex-start;
-
-}
-
-.footer-contact{
-
-display:flex;
-flex-direction:column;
-align-items:flex-end;
-
-}
-
-.footer h3{
-
-font-size:15px;
-margin-bottom:8px;
-
-}
-
-.footer-links a,
-.footer-contact a{
-
-margin:4px 0;
-font-size:11.5px;
-
-}
-
-.footer-contact p{
-
-font-size:10.5px;
-margin-top:4px;
-text-align:right;
-
-}
-
-.whatsapp-btn{
-
-right:16px;
-bottom:16px;
-
-width:48px;
-height:48px;
-
-padding:0;
-
-border-radius:50%;
-
-}
-
-.whatsapp-icon{
-
-font-size:24px;
-
-}
-
-.whatsapp-text{
-
-display:none;
-
-}
-
-.footer-bottom{
-
-padding:12px;
-
-font-size:11px;
-
-}
-
-}
-
-
 
 /* =========================
    SMALL MOBILE (≤ 420px)
 ========================= */
+@media(max-width:420px) {
+  .brand-logo {
+    font-size: 32px;
+  }
 
-@media(max-width:420px){
+  .brand-box {
+    padding: 22px;
+  }
 
-.brand-logo{
+  .footer h3 {
+    font-size: 19px;
+  }
 
-font-size:32px;
+  .social-icons {
+    gap: 8px;
+  }
 
-}
+  .social-icons a {
+    padding: 7px 12px;
+    font-size: 11px;
+  }
 
-.brand-box{
+  .whatsapp-btn {
+    right: 12px;
+    bottom: 12px;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+  }
 
-padding:22px;
-
-}
-
-.footer h3{
-
-font-size:19px;
-
-}
-
-.social-icons{
-
-gap:8px;
-
-}
-
-.social-icons a{
-
-padding:7px 12px;
-font-size:11px;
-
-}
-
-.whatsapp-btn{
-
-right:12px;
-bottom:12px;
-
-width:46px;
-height:46px;
-
-padding:0;
-
-}
-
-.whatsapp-icon{
-
-font-size:22px;
-
-}
-
+  .whatsapp-icon {
+    font-size: 22px;
+  }
 }
