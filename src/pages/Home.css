@@ -1,7 +1,21 @@
+/* =========================
+   HERO + STATS WRAPPER
+   Makes hero + stats together fill exactly one viewport height.
+   Stats section automatically fills whatever space is left below
+   the hero, on every screen size — no manual vh math needed.
+========================= */
+
+.hero-stats-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .hero {
   position: relative;
   width: 100%;
-  height: 70vh;        /* reduced from 85vh - was too tall and stretched */
+  flex: 0 0 auto;
+  height: 78vh;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -9,7 +23,7 @@
 
 .hero-video {
   width: 100%;
-  height: 100%;        /* match parent instead of fixed 100vh, prevents stretch mismatch */
+  height: 100%;
   object-fit: cover;
   object-position: top;
   display: block;
@@ -36,7 +50,7 @@
   color: #fff;
   z-index: 1;
   width: 90%;
-  max-width: 700px;     /* prevents heading from stretching full-width and wrapping oddly */
+  max-width: 700px;
   opacity: 0;
   transition: opacity 1.5s ease,
               transform 1.5s ease;
@@ -47,7 +61,7 @@
 }
 
 .hero-content h1 {
-  font-size: 2.4rem;     /* slightly smaller so it fits on 2 clean lines, not 3 awkward ones */
+  font-size: 2.4rem;
   line-height: 1.25;
   margin-bottom: 16px;
   font-weight: bold;
@@ -111,7 +125,7 @@ html, body, #root {
 @media(max-width:900px){
 
   .hero {
-    height: 62vh;
+    height: 70vh;
   }
 
   .hero-content h1 {
@@ -127,8 +141,8 @@ html, body, #root {
 @media(max-width:768px){
 
   .hero {
-    height: 58vh;
-    min-height: 420px;   /* keeps hero from getting too short on very tall mobile aspect ratios */
+    height: 64vh;
+    min-height: 460px;
   }
 
   .hero-content {
@@ -161,8 +175,8 @@ html, body, #root {
 @media(max-width:420px){
 
   .hero {
-    height: 52vh;
-    min-height: 380px;
+    height: 58vh;
+    min-height: 400px;
   }
 
   .hero-content h1 {

@@ -1,0 +1,203 @@
+/*
+  IMAGE FILES: save each university logo as a PNG/SVG inside:
+    public/universities/
+
+  Example: public/universities/warsaw.png
+  In code you reference it as "/universities/warsaw.png" (no "public/" prefix,
+  Vite serves everything inside public/ from the site root automatically).
+*/
+
+.pu-section {
+  background: #fff;
+  padding: 90px 0 70px;
+  overflow: hidden;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500&display=swap");
+
+.pu-header {
+  max-width: 640px;
+  margin: 0 auto 56px;
+  padding: 0 6%;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.pu-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #d10000;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  font-size: 12.5px;
+  margin-bottom: 20px;
+}
+
+.pu-tag::before,
+.pu-tag::after {
+  content: "";
+  width: 22px;
+  height: 1.5px;
+  background: #d10000;
+  opacity: 0.5;
+}
+
+.pu-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 46px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
+  text-wrap: balance;
+}
+
+.pu-title span {
+  color: #d10000;
+}
+
+.pu-subtext {
+  color: #6b6b6b;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  text-wrap: balance;
+}
+
+.pu-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.pu-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  animation: pu-scroll 35s linear infinite;
+}
+
+.pu-marquee:hover .pu-track {
+  animation-play-state: paused;
+}
+
+@keyframes pu-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.pu-card {
+  flex: 0 0 auto;
+  width: 200px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  padding: 26px 18px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+
+  /* Reset link defaults since the card is now an <a> (react-router Link) */
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.pu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-color: rgba(209, 0, 0, 0.3);
+}
+
+.pu-logo {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f8;
+}
+
+.pu-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pu-card h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #161616;
+  line-height: 1.4;
+  min-height: 40px;
+  margin-bottom: 8px;
+  letter-spacing: -0.1px;
+}
+
+.pu-country {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .pu-section {
+    padding: 60px 0 50px;
+  }
+
+  .pu-title {
+    font-size: 26px;
+  }
+
+  .pu-subtext {
+    font-size: 13.5px;
+  }
+
+  .pu-card {
+    width: 150px;
+    padding: 20px 12px;
+  }
+
+  .pu-logo {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 12px;
+  }
+
+  .pu-card h3 {
+    font-size: 12px;
+    min-height: 34px;
+  }
+
+  .pu-track {
+    animation-duration: 22s;
+  }
+}

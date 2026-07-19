@@ -74,7 +74,6 @@ const Countries = () => {
   const timerRef = useRef(null);
   const pausedRef = useRef(false);
 
-  // responsive card sizing (mirrors your existing mobile-breakpoint approach)
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" && window.innerWidth < 640
   );
@@ -85,8 +84,6 @@ const Countries = () => {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // scroll-triggered fade-in for the heading, same IntersectionObserver
-  // pattern used in the Stats count-up component
   const [headingVisible, setHeadingVisible] = useState(false);
   const headingRef = useRef(null);
 
@@ -111,7 +108,6 @@ const Countries = () => {
     [count]
   );
 
-  // autoplay, loops infinitely in both directions
   useEffect(() => {
     timerRef.current = setInterval(() => {
       if (!pausedRef.current) setActive((a) => (a + 1) % count);
