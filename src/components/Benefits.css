@@ -60,6 +60,10 @@
 .brand-brainiacs {
   color: #d10000;
 }
+ .brand-dot {
+  color: #d10000;
+
+}
 
 .benefits-subhead {
   font-size: 22px;
@@ -97,12 +101,12 @@
 .mc-container {
   position: relative;
   width: 100%;
-  min-height: 420px;
+  height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: visible;
-  padding: 20px 0;
+  padding: 0;
 }
 
 .mc-bar {
@@ -116,6 +120,10 @@
   background-repeat: no-repeat;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   will-change: width, height;
+  transition: width 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+              height 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+              filter 0.45s ease,
+              opacity 0.45s ease;
 }
 
 .mc-overlay {

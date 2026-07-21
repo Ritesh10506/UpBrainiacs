@@ -1,5 +1,11 @@
 import "./Footer.css";
-import { FaWhatsapp } from "react-icons/fa"; // WhatsApp icon
+import {
+  FaWhatsapp,
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -20,34 +26,42 @@ const Footer = () => {
             </p>
 
             {/* Social Icons */}
-            <div className="social-icons">
-              <a
+         <div className="social-icons">
+             <a
+
                 href="https://www.instagram.com/upbrainiacs_global/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
               >
-                Instagram
+                <FaInstagram />
               </a>
               <a
+
                 href="https://www.facebook.com/share/1CjuieCvS7/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
               >
-                Facebook
+                <FaFacebookF />
               </a>
               <a
+
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
-                LinkedIn
+                <FaLinkedinIn />
               </a>
               <a
+
                 href="https://youtube.com/@upbrainiacs?si=-KD9r3wHTTc8ONpJ"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="YouTube"
               >
-                YouTube
+                <FaYoutube />
               </a>
             </div>
           </div>
@@ -76,7 +90,7 @@ const Footer = () => {
             📞 <a href="tel:+916394045804">+91 6394045804</a>
           </p>
           <p>
-            ✉️ <a href="mailto:info@upbrainiacs.com">info@upbrainiacs.com</a>
+            ✉️ <a href="mailto:upbrainiacs@gmail.com">upbrainiacs@gmail.com</a>
           </p>
         </div>
       </div>

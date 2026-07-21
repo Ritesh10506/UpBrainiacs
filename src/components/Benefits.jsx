@@ -123,7 +123,7 @@ const Benefits = () => {
       : { width: COLLAPSED_WIDTH, height: COLLAPSED_HEIGHT };
   };
 
-  const barTransition = `width ${DURATION}s ease-in-out, height ${DURATION}s ease-in-out, filter ${DURATION}s ease-in-out, opacity ${DURATION}s ease-in-out`;
+  const barTransition = `width 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), height 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.45s ease, opacity 0.45s ease`;
 
   const openItem = open !== null ? benefits[open] : null;
 
@@ -138,6 +138,7 @@ const Benefits = () => {
           <h2 className="benefits-brandline">
             <span className="brand-up">Up</span>
             <span className="brand-brainiacs">Brainiacs</span>
+             <span className="brand-dot">.</span>
           </h2>
           <h3 className="benefits-subhead">
             Your Trusted Partner for MBBS Abroad Admissions

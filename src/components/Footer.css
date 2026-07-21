@@ -12,11 +12,10 @@
   gap: 40px;
 }
 
-/* BRAND TRANSPARENT BOX */
+/* BRAND WHITE BOX */
 .brand-box {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, .15);
-  backdrop-filter: blur(12px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, .08);
   padding: 30px;
   border-radius: 20px;
   max-width: 420px;
@@ -33,12 +32,9 @@
   font-weight: 800;
   letter-spacing: 1px;
   margin-bottom: 15px;
-
-  background: #fff;       /* white box */
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 0;
   display: inline-block;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: none;
 }
 
 /* Logo color split */
@@ -55,7 +51,7 @@
 }
 
 .footer-brand p {
-  color: #ddd;
+  color: #444;
   line-height: 1.7;
   font-size: 16px;
   text-align: center;
@@ -97,14 +93,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   flex: 0 1 auto;
-  border: 1px solid #555;
+  border: 1px solid #ddd;
   padding: 8px 12px;
   border-radius: 10px;
   font-size: 12.5px;
   font-weight: 600;
   white-space: nowrap;
   margin: 0;
+  color: #222;
+  background: #f8f8f8;
 }
 
 .social-icons a:hover {
@@ -112,6 +111,10 @@
   border-color: #d10000;
   color: white;
   transform: none;
+}
+
+.social-icon {
+  font-size: 1.1rem;
 }
 
 /* CONTACT */
