@@ -83,7 +83,7 @@ const Footer = () => {
           <h3>Contact Us</h3>
           <p>
             9th Floor, Tower D, Unitech CyberPark,<br />
-            Sector 39, Gurgaon Sector 45,<br />
+            Sector 39, Gurgaon ,<br />
             Haryana, India, 122003
           </p>
           <p>
