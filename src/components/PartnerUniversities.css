@@ -1,4 +1,5 @@
-/*
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500&display=swap");/*
   IMAGE FILES: save each university logo as a PNG/SVG inside:
     public/universities/
 
@@ -13,7 +14,6 @@
   overflow: hidden;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500&display=swap");
 
 .pu-header {
   max-width: 640px;
