@@ -1,0 +1,322 @@
+.benefits-section {
+  position: relative;
+  background: #fff;
+  padding: 100px 4% 90px;
+  overflow: hidden;
+}
+
+.benefits-bg {
+  position: absolute;
+  inset: 0;
+  background: url("/about/about-main.png") center/cover no-repeat;
+  z-index: 0;
+}
+
+.benefits-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.85) 40%,
+    #ffffff 85%
+  );
+  z-index: 1;
+}
+
+.benefits-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefits-header {
+  max-width: 720px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.benefits-eyebrow {
+  display: block;
+  color: #d10000;
+  font-weight: 700;
+  letter-spacing: 4px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.benefits-brandline {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.brand-up {
+  color: #111;
+}
+
+.brand-brainiacs {
+  color: #d10000;
+}
+ .brand-dot {
+  color: #d10000;
+
+}
+
+.benefits-subhead {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.benefits-para {
+  color: #555;
+  font-size: 15.5px;
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.benefits-divider {
+  width: 60px;
+  height: 3px;
+  background: #d10000;
+  border-radius: 6px;
+  margin: 22px auto 0;
+}
+
+.benefits-hint {
+  text-align: center;
+  color: #888;
+  font-size: 13.5px;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* ===== Carousel bars (shared by desktop + mobile) ===== */
+
+.mc-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 0;
+}
+
+.mc-bar {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  will-change: width, height;
+  transition: width 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+              height 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+              filter 0.45s ease,
+              opacity 0.45s ease;
+}
+
+.mc-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.mc-collapsed-label {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 1;
+}
+
+.mc-num {
+  color: #fff;
+  font-weight: 900;
+  font-size: 20px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.mc-bar-open {
+  border-radius: 24px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+}
+
+.mc-open-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  color: #fff;
+}
+
+.mc-num-open {
+  color: #ff5c5c;
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+
+.mc-open-content h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.mc-open-content p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #f0f0f0;
+  max-width: 440px;
+}
+
+/* ===== Mobile — same bar look, horizontally scrollable row ===== */
+
+.mc-container.mc-mobile {
+  min-height: 0;
+  overflow-x: auto;
+  justify-content: flex-start;
+  padding: 10px 4px 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mc-container.mc-mobile .mc-collapsed-label {
+  bottom: 10px;
+  left: 10px;
+}
+
+.mc-container.mc-mobile .mc-num {
+  font-size: 15px;
+}
+
+/* ===== Mobile fullscreen centered modal ===== */
+
+.mc-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 12, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: mcFadeIn 0.25s ease;
+}
+
+@keyframes mcFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mc-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 85vh;
+  background: #fff;
+  border-radius: 26px;
+  overflow-y: auto;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.4);
+  animation: mcPopIn 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes mcPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.mc-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mc-modal-image {
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.mc-modal-body {
+  padding: 24px 22px 28px;
+}
+
+.mc-modal-body .mc-num-open {
+  color: #d10000;
+  text-shadow: none;
+  font-size: 30px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.mc-modal-body h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.mc-modal-body p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #555;
+}
+
+@media (max-width: 900px) {
+  .benefits-section {
+    padding: 60px 6% 60px;
+  }
+
+  .benefits-brandline {
+    font-size: 32px;
+  }
+
+  .benefits-subhead {
+    font-size: 18px;
+  }
+
+  .benefits-para {
+    font-size: 14px;
+  }
+}

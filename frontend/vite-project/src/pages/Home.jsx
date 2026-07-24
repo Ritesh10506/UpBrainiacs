@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Stats from "../components/Stats";
-import About from "../components/About";
+import Benefits from "../components/Benefits";
 import RegisterForm from "../components/RegisterForm";
 import Countries from "../components/Countries";
 import Footer from "../components/Footer";
+import PartnerUniversities from "../components/PartnerUniversities";
 
 import "./Home.css";
 
@@ -30,55 +31,60 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* Hero Section */}
-      <section id="home" className="hero">
+      {/* Hero + Stats together fill exactly one viewport height */}
+      <div className="hero-stats-wrap">
 
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="hero-video"
-        >
-          <source
-            src="/hero-video.mp4"
-            type="video/mp4"
-          />
-        </video>
+        {/* Hero Section */}
+        <section id="home" className="hero">
 
-        <div className="hero-overlay"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="hero-video"
+          >
+            <source
+              src="/hero-video.mp4"
+              type="video/mp4"
+            />
+          </video>
 
-        <div className="hero-content">
+          <div className="hero-overlay"></div>
 
-          <h1>
-            Your Gateway To
-            Foreign Education
-          </h1>
+          <div className="hero-content">
 
-          <p>
-            We guide students through
-            admissions, scholarships,
-            visas and university selection.
-          </p>
+            <h1>
+              Your Gateway To
+              Foreign Education
+            </h1>
 
-          <button onClick={scrollToRegister}>
-            Apply Now
-          </button>
+            <p>
+              We guide students through
+              admissions, scholarships,
+              visas and university selection.
+            </p>
 
-        </div>
+            <button onClick={scrollToRegister}>
+              Apply Now
+            </button>
 
-      </section>
+          </div>
 
-      {/* Stats Section */}
-      <Stats />
+        </section>
 
-      {/* About Section */}
-      <About />
+        {/* Stats Section — fills remaining viewport space automatically */}
+        <Stats />
+
+      </div>
+      <PartnerUniversities />
+
+      {/* Benefits Section */}
+      <Benefits />
 
       {/* Registration Form */}
       <RegisterForm />
 
-      
       {/* Countries Section */}
       <Countries />
 

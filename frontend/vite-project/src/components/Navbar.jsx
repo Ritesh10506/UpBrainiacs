@@ -12,9 +12,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Build the list of countries to show in the dropdown,
-  // straight from countriesData.js — add a new country file
-  // and it will automatically appear here too.
   const countryList = Object.entries(countriesData).map(
     ([slug, data]) => ({
       slug,
@@ -22,14 +19,10 @@ const Navbar = () => {
     })
   );
 
-  // Scrolls to a given section id on the current page.
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -38,13 +31,8 @@ const Navbar = () => {
     setIsMobileCountriesOpen(false);
   };
 
-  // Navigates "home" to a section. If we're already on "/",
-  // it just scrolls. If we're on another page (e.g. a country
-  // page), it navigates to "/" first, then scrolls to the
-  // section once the homepage has actually mounted.
   const goToHomeSection = (e, sectionId) => {
     e?.preventDefault();
-
     closeMobileMenu();
 
     if (location.pathname === "/") {
@@ -58,8 +46,6 @@ const Navbar = () => {
 
     navigate("/");
 
-    // Wait a tick for the homepage to render before scrolling,
-    // since the target section doesn't exist until it mounts.
     setTimeout(() => {
       if (sectionId) {
         scrollToSection(sectionId);
@@ -69,26 +55,15 @@ const Navbar = () => {
     }, 100);
   };
 
-  const scrollToRegister = (e) => {
-    goToHomeSection(e, "register");
-  };
-
-  const scrollToTop = (e) => {
-    goToHomeSection(e, null);
-  };
-
-  const scrollToAbout = (e) => {
-    goToHomeSection(e, "about");
-  };
+  const scrollToRegister = (e) => goToHomeSection(e, "register");
+  const scrollToTop = (e) => goToHomeSection(e, null);
 
   const toggleCountries = (e) => {
     e.preventDefault();
     setIsCountriesOpen((prev) => !prev);
   };
 
-  const closeCountries = () => {
-    setIsCountriesOpen(false);
-  };
+  const closeCountries = () => setIsCountriesOpen(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -100,24 +75,16 @@ const Navbar = () => {
     setIsMobileCountriesOpen((prev) => !prev);
   };
 
-  // Close the desktop dropdown when clicking anywhere outside of it
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsCountriesOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close menus if the user presses Escape
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === "Escape") {
@@ -125,19 +92,14 @@ const Navbar = () => {
         closeMobileMenu();
       }
     };
-
     document.addEventListener("keydown", handleEscape);
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-    };
+    return () => document.removeEventListener("keydown", handleEscape);
   }, []);
 
-  // Close the mobile menu automatically whenever the route changes
   useEffect(() => {
     closeMobileMenu();
   }, [location.pathname]);
 
-  // Prevent background scroll while the mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
     return () => {
@@ -147,42 +109,22 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-
-      {/* Logo */}
       <div className="brand">
         <span className="brand-up">Up</span>
-        <span className="brand-brainiacs">
-          Brainiacs
-        </span>
+        <span className="brand-brainiacs">Brainiacs</span>
         <span className="brand-dot">.</span>
       </div>
 
-      {/* Desktop Navigation */}
       <ul className="nav-links">
-
         <li>
-          <a
-            href="#"
-            onClick={scrollToTop}
-          >
-            Home
-          </a>
+          <a href="#" onClick={scrollToTop}>Home</a>
         </li>
 
         <li>
-          <a
-            href="#about"
-            onClick={scrollToAbout}
-          >
-            About
-          </a>
+          <Link to="/about">About</Link>
         </li>
 
-        {/* Countries Dropdown */}
-        <li
-          className="countries-dropdown"
-          ref={dropdownRef}
-        >
+        <li className="countries-dropdown" ref={dropdownRef}>
           <a
             href="#"
             className="countries-trigger"
@@ -191,11 +133,7 @@ const Navbar = () => {
             aria-expanded={isCountriesOpen}
           >
             Countries
-            <span
-              className={`countries-arrow ${
-                isCountriesOpen ? "countries-arrow-open" : ""
-              }`}
-            >
+            <span className={`countries-arrow ${isCountriesOpen ? "countries-arrow-open" : ""}`}>
               ▾
             </span>
           </a>
@@ -204,10 +142,7 @@ const Navbar = () => {
             <ul className="countries-menu">
               {countryList.map((country) => (
                 <li key={country.slug}>
-                  <Link
-                    to={`/mbbs-in/${country.slug}`}
-                    onClick={closeCountries}
-                  >
+                  <Link to={`/mbbs-in/${country.slug}`} onClick={closeCountries}>
                     {country.name}
                   </Link>
                 </li>
@@ -217,25 +152,14 @@ const Navbar = () => {
         </li>
 
         <li>
-          <a
-            href="#register"
-            onClick={scrollToRegister}
-          >
-            Registration
-          </a>
+          <a href="#register" onClick={scrollToRegister}>Registration</a>
         </li>
-
       </ul>
 
-      {/* Apply Button (desktop) */}
-      <button
-        className="start-btn"
-        onClick={scrollToRegister}
-      >
+      <button className="start-btn" onClick={scrollToRegister}>
         Apply Now
       </button>
 
-      {/* Hamburger Button (mobile only) */}
       <button
         className={`hamburger-btn ${isMobileMenuOpen ? "hamburger-open" : ""}`}
         onClick={toggleMobileMenu}
@@ -247,35 +171,21 @@ const Navbar = () => {
         <span></span>
       </button>
 
-      {/* Mobile Menu Overlay */}
       <div
-        className={`mobile-menu-overlay ${
-          isMobileMenuOpen ? "mobile-menu-overlay-open" : ""
-        }`}
+        className={`mobile-menu-overlay ${isMobileMenuOpen ? "mobile-menu-overlay-open" : ""}`}
         onClick={closeMobileMenu}
       />
 
-      {/* Mobile Menu Panel */}
-      <div
-        className={`mobile-menu ${
-          isMobileMenuOpen ? "mobile-menu-open" : ""
-        }`}
-      >
+      <div className={`mobile-menu ${isMobileMenuOpen ? "mobile-menu-open" : ""}`}>
         <ul className="mobile-nav-links">
-
           <li>
-            <a href="#" onClick={scrollToTop}>
-              Home
-            </a>
+            <a href="#" onClick={scrollToTop}>Home</a>
           </li>
 
           <li>
-            <a href="#about" onClick={scrollToAbout}>
-              About
-            </a>
+            <Link to="/about" onClick={closeMobileMenu}>About</Link>
           </li>
 
-          {/* Mobile Countries Accordion */}
           <li className="mobile-countries">
             <a
               href="#"
@@ -284,11 +194,7 @@ const Navbar = () => {
               aria-expanded={isMobileCountriesOpen}
             >
               Countries
-              <span
-                className={`countries-arrow ${
-                  isMobileCountriesOpen ? "countries-arrow-open" : ""
-                }`}
-              >
+              <span className={`countries-arrow ${isMobileCountriesOpen ? "countries-arrow-open" : ""}`}>
                 ▾
               </span>
             </a>
@@ -297,10 +203,7 @@ const Navbar = () => {
               <ul className="mobile-countries-menu">
                 {countryList.map((country) => (
                   <li key={country.slug}>
-                    <Link
-                      to={`/mbbs-in/${country.slug}`}
-                      onClick={closeMobileMenu}
-                    >
+                    <Link to={`/mbbs-in/${country.slug}`} onClick={closeMobileMenu}>
                       {country.name}
                     </Link>
                   </li>
@@ -310,21 +213,14 @@ const Navbar = () => {
           </li>
 
           <li>
-            <a href="#register" onClick={scrollToRegister}>
-              Registration
-            </a>
+            <a href="#register" onClick={scrollToRegister}>Registration</a>
           </li>
-
         </ul>
 
-        <button
-          className="mobile-apply-btn"
-          onClick={scrollToRegister}
-        >
+        <button className="mobile-apply-btn" onClick={scrollToRegister}>
           Apply Now
         </button>
       </div>
-
     </nav>
   );
 };
