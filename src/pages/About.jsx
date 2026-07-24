@@ -9,7 +9,7 @@ const About = () => {
 
       <section className="about-hero" id="about-intro">
         <h1>About UpBrainiacs</h1>
-        <p>Content yahan baad mein aayega...</p>
+        <p>Content updated soon...</p>
       </section>
 
       <Footer />
