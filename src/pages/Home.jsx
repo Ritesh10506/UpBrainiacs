@@ -1,3 +1,4 @@
+import Testimonials from "../components/Testimonials";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Stats from "../components/Stats";
@@ -87,6 +88,10 @@ export default function Home() {
 
       {/* Countries Section */}
       <Countries />
+
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* Footer */}
       <Footer />
