@@ -154,7 +154,7 @@ const About = () => {
 
               <div className="founder-quote-side">
                 <span className="founder-eyebrow">
-                  A MESSAGE FROM Shristi
+                  A MESSAGE FROM OUR Founder
                 </span>
 
                 <div className="founder-quote-card">
