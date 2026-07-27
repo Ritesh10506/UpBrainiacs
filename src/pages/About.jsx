@@ -51,7 +51,7 @@ const services = [
 const About = () => {
   return (
     <>
-      <title>About Us | UpBrainiacs — MBBS Abroad Consultancy</title>
+      <title>About us | UpBrainiacs — MBBS Abroad Consultancy</title>
       <meta
         name="description"
         content="Learn about UpBrainiacs — a complete MBBS career-building ecosystem for Indian students. Meet our founder, explore our admission, financial, insurance and visa assistance services."
@@ -154,7 +154,7 @@ const About = () => {
 
               <div className="founder-quote-side">
                 <span className="founder-eyebrow">
-                  A MESSAGE FROM OUR FOUNDER
+                  A MESSAGE FROM Shristi
                 </span>
 
                 <div className="founder-quote-card">
