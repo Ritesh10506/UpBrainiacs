@@ -51,10 +51,10 @@ const services = [
 const About = () => {
   return (
     <>
-      <title>About us | UpBrainiacs — MBBS Abroad Consultancy</title>
+      <title>About Us | UpBrainiacs — MBBS Abroad Consultancy</title>
       <meta
         name="description"
-        content="Learn about UpBrainiacs — a complete MBBS career-building ecosystem for Indian students. Meet our founder, explore our admission, financial, insurance and visa assistance services."
+        content="Learn about UpBrainiacs Global — a student-first international education consultancy offering ethical counselling, transparent processes and complete support for studying MBBS abroad."
       />
       <link rel="canonical" href="https://upbrainiacs.com/about" />
 
@@ -63,7 +63,7 @@ const About = () => {
       <meta property="og:title" content="About Us | UpBrainiacs" />
       <meta
         property="og:description"
-        content="A complete MBBS career-building ecosystem for Indian students — from university selection to becoming a practicing doctor."
+        content="A student-first international education consultancy — trusted guidance from the first counselling call to becoming a practicing doctor."
       />
       <meta property="og:image" content="https://upbrainiacs.com/ub-logo.png" />
 
@@ -74,7 +74,7 @@ const About = () => {
           name: "About UpBrainiacs",
           url: "https://upbrainiacs.com/about",
           description:
-            "UpBrainiacs is a complete MBBS career-building ecosystem for Indian students, offering admission guidance, financial assistance, insurance assistance and visa assistance.",
+            "UpBrainiacs Global Private Limited is a student-first international education consultancy providing ethical counselling, transparent processes and personalised support for MBBS admissions abroad.",
           mainEntity: {
             "@type": "EducationalOrganization",
             name: "UpBrainiacs",
@@ -118,17 +118,28 @@ const About = () => {
             <span className="brand-dot">.</span>
           </h1>
           <p className="about-lead">
-            Upbrainiacs Global is not just an MBBS admission consultancy — it
-            is a complete career-building ecosystem for Indian students who
-            dream of becoming doctors. We guide, support, and stand beside
-            every student and parent from the very first counselling session
-            to the day they begin practicing medicine in India.
+            UpBrainiacs Global Private Limited was founded with a strong
+            belief in the talent and potential of Indian students to excel
+            on the global stage. Built from the ground up with a
+            student-first approach, the organisation is dedicated to
+            supporting every student from the very beginning of their study
+            abroad journey.
           </p>
           <p className="about-lead about-lead-secondary">
-            With trusted partnerships across Georgia, Russia, Romania and
-            Kazakhstan, we connect students with government-approved medical
-            universities evaluated on accreditation, faculty quality,
-            hospital tie-ups, safety and NMC/NEXT compliance.
+            With deep expertise in international education and a commitment
+            to staying ahead of the ever-evolving global education
+            landscape, UpBrainiacs provides accurate guidance, transparent
+            processes, and personalised support at every stage. At the heart
+            of our mission is a commitment to ethical counselling, ensuring
+            that every student receives honest advice and dedicated
+            assistance in achieving their dream of studying abroad.
+          </p>
+          <p className="about-lead about-lead-secondary">
+            Through our hands-on approach and unwavering focus on student
+            success, UpBrainiacs has developed a trusted model for
+            international education—one that empowers students, transforms
+            aspirations into reality, and serves as a springboard for those
+            seeking world-class educational opportunities across the globe.
           </p>
           <div className="about-divider" />
         </div>
@@ -147,24 +158,24 @@ const About = () => {
                 <div className="founder-photo-frame">
                   <img
                     src="/about/founder.png"
-                    alt="sandy — Founder & Managing Director, Upbrainiacs Global"
+                    alt="Shikher Kelvin — Founder & Managing Director, Upbrainiacs Global"
                   />
                 </div>
               </div>
 
               <div className="founder-quote-side">
                 <span className="founder-eyebrow">
-                  A MESSAGE FROM OUR Founder
+                  A MESSAGE FROM OUR FOUNDER
                 </span>
 
                 <div className="founder-quote-card">
                   <span className="quote-glyph">"</span>
                   <p className="founder-quote-text">
-                    Upbrainiacs Global was not born out of ambition alone —
-                    it was born out of the belief that every Indian student
-                    pursuing MBBS deserves more than just admission guidance.
-                    They deserve a partner who stays invested in their
-                    journey.
+                    UpBrainiacs Global was founded with a strong belief in
+                    the talent and potential of Indian students to excel on
+                    the global stage — built from the ground up with a
+                    student-first approach, dedicated to supporting every
+                    student from the very beginning of their journey.
                   </p>
                   <span className="quote-glyph quote-glyph-end">"</span>
 

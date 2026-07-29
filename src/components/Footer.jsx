@@ -41,7 +41,7 @@ const Footer = () => {
                 <div className="social-icons">
                     <a href="https://www.instagram.com/upbrainiacs_global/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="icon-instagram"><FaInstagram /></a>
                     <a href="https://www.facebook.com/share/1CjuieCvS7/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="icon-facebook"><FaFacebookF /></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="icon-linkedin"><FaLinkedinIn /></a>
+                    <a href="https://www.linkedin.com/in/ritesh-singh-79453433b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="icon-linkedin"><FaLinkedinIn /></a>
                     <a href="https://youtube.com/@upbrainiacs?si=-KD9r3wHTTc8ONpJ" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="icon-youtube"><FaYoutube /></a>
                 </div>
               </div>

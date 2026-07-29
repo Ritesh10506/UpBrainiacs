@@ -2,8 +2,6 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.15s ease-out,
-              box-shadow 0.3s ease-out;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   will-change: transform;
   background: #fff;

@@ -4,6 +4,7 @@
   background: #fff;
   width: 100%;
   font-family: "Inter", sans-serif;
+  padding-bottom: 130px;
 }
 
 .about-section > div {
@@ -54,7 +55,7 @@
   color: #444;
   font-size: 15.5px;
   line-height: 1.7;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .about-lead-secondary {
@@ -199,21 +200,21 @@
 
 .founder-principles {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
+  flex-direction: column;
+  gap: 8px;
   color: #d10000;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
-  margin: 14px 0 16px;
+  margin: 16px 0 18px;
 }
 
 .founder-signature {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 3px;
+  gap: 6px;
   border-top: 1px solid #f0dede;
-  padding-top: 12px;
+  padding-top: 14px;
 }
 
 .founder-name {
@@ -230,7 +231,7 @@
 
 /* ===== SERVICES — 3D tilt grid, exact reference style ===== */
 .about-services {
-  margin-bottom: 90px;
+  margin-bottom: 0;
 }
 
 .services-tilt-grid {
@@ -265,8 +266,9 @@
   background: #d10000;
   transform: scaleY(0);
   transform-origin: center;
-  transition: transform 0.35s ease;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 3;
+  will-change: transform;
 }
 
 .tilt-grid-cell:hover::before {
@@ -276,14 +278,11 @@
 .tilt-grid-inner {
   position: relative;
   padding: 40px 44px 44px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  transform-style: preserve-3d;
-  transform-origin: left center;
+  transition: box-shadow 0.35s ease;
   background: transparent;
 }
 
 .tilt-grid-cell:hover .tilt-grid-inner {
-  transform: perspective(1200px) rotateY(-3deg) scale(1.015);
   background: #fff;
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.08);
   z-index: 2;
@@ -329,7 +328,7 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .about-intro {
-    padding-top: 140px;
+    padding-top: 90px;
   }
 
   .about-brandline {

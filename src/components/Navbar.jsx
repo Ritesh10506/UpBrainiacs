@@ -109,11 +109,11 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="brand">
+      <Link to="/" className="brand" onClick={scrollToTop}>
         <span className="brand-up">Up</span>
         <span className="brand-brainiacs">Brainiacs</span>
         <span className="brand-dot">.</span>
-      </div>
+      </Link>
 
       <ul className="nav-links">
         <li>
