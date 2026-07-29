@@ -147,7 +147,7 @@ const About = () => {
                 <div className="founder-photo-frame">
                   <img
                     src="/about/founder.png"
-                    alt="Shikher Kelvin — Founder & Managing Director, Upbrainiacs Global"
+                    alt="sandy — Founder & Managing Director, Upbrainiacs Global"
                   />
                 </div>
               </div>
