@@ -48,13 +48,32 @@ const services = [
   },
 ];
 
+const founders = [
+  {
+    id: "shikher",
+    name: "Shikher Kelvin",
+    role: "Founder & Chairman, Upbrainiacs Global Pvt. Ltd.",
+    photo: "/about/founder.png",
+    desc: `UpBrainiacs Global Private Limited was founded with a strong belief in the talent and potential of Indian students to excel on the global stage. Built from the ground up with a student-first approach, the organisation is dedicated to supporting every student from the very beginning of their study abroad journey. With deep expertise in international education and a commitment to staying ahead of the ever-evolving global education landscape, UpBrainiacs provides accurate guidance, transparent processes, and personalised support at every stage. Through our hands-on approach and unwavering focus on student success, UpBrainiacs has developed a trusted model for international education—one that empowers students, transforms aspirations into reality, and serves as a springboard for those seeking world-class educational opportunities across the globe.`,
+    principles: null,
+  },
+  {
+    id: "shreyansh",
+    name: "Shreyansh Soni",
+    role: "Co-Founder & Director, Upbrainiacs Global Pvt. Ltd.",
+    photo: "/about/shreyansh.png",
+    desc: `Passion is one of the most important aspects to cherish life, as it makes you feel every breath that you take — and what makes me passionate is the determination I have to improvise and push things to the level of being called the best. Hard work pays well, but smart work pays even better — I believe there is always a better way to get things done, and I love finding that out. I am not the kind of person who would devote anything less than 100% to anything I'm attached to. I believe everyone has their own signature style of working, and so do I — in whichever company I have worked with, I make sure I add improvements through my skills and potential, because I believe there is always scope for improvement.`,
+    principles: ['"Be Good, Do Good."', '"Deserve Before You Desire."'],
+  },
+];
+
 const About = () => {
   return (
     <>
       <title>About Us | UpBrainiacs — MBBS Abroad Consultancy</title>
       <meta
         name="description"
-        content="Learn about UpBrainiacs Global — a student-first international education consultancy offering ethical counselling, transparent processes and complete support for studying MBBS abroad."
+        content="UpBrainiacs Global Private Limited is a premier international education consultancy specialising in MBBS admissions and higher education abroad. Meet our founders and explore our admission, financial, insurance and visa assistance services."
       />
       <link rel="canonical" href="https://upbrainiacs.com/about" />
 
@@ -63,7 +82,7 @@ const About = () => {
       <meta property="og:title" content="About Us | UpBrainiacs" />
       <meta
         property="og:description"
-        content="A student-first international education consultancy — trusted guidance from the first counselling call to becoming a practicing doctor."
+        content="A premier international education consultancy — trusted guidance, transparent counselling and comprehensive support for MBBS and higher education abroad."
       />
       <meta property="og:image" content="https://upbrainiacs.com/ub-logo.png" />
 
@@ -74,17 +93,24 @@ const About = () => {
           name: "About UpBrainiacs",
           url: "https://upbrainiacs.com/about",
           description:
-            "UpBrainiacs Global Private Limited is a student-first international education consultancy providing ethical counselling, transparent processes and personalised support for MBBS admissions abroad.",
+            "UpBrainiacs Global Private Limited is a premier international education consultancy specialising in MBBS admissions and higher education abroad, providing trusted guidance, transparent counselling and comprehensive support.",
           mainEntity: {
             "@type": "EducationalOrganization",
             name: "UpBrainiacs",
             url: "https://upbrainiacs.com",
             logo: "https://upbrainiacs.com/ub-logo.png",
-            founder: {
-              "@type": "Person",
-              name: "Shikher Kelvin",
-              jobTitle: "Founder & Managing Director",
-            },
+            founders: [
+              {
+                "@type": "Person",
+                name: "Shikher Kelvin",
+                jobTitle: "Founder & Chairman",
+              },
+              {
+                "@type": "Person",
+                name: "Shreyansh Soni",
+                jobTitle: "Co-Founder & Director",
+              },
+            ],
           },
         })}
       </script>
@@ -118,83 +144,84 @@ const About = () => {
             <span className="brand-dot">.</span>
           </h1>
           <p className="about-lead">
-            UpBrainiacs Global Private Limited was founded with a strong
-            belief in the talent and potential of Indian students to excel
-            on the global stage. Built from the ground up with a
-            student-first approach, the organisation is dedicated to
-            supporting every student from the very beginning of their study
-            abroad journey.
+            <strong>UpBrainiacs Global Private Limited</strong> is a premier
+            international education consultancy committed to empowering
+            aspiring students with access to world-class educational
+            opportunities across the globe. Specialising in MBBS admissions
+            and higher education abroad, we provide trusted guidance,
+            transparent counselling, and comprehensive support to help
+            students make informed decisions about their academic future.
           </p>
           <p className="about-lead about-lead-secondary">
-            With deep expertise in international education and a commitment
-            to staying ahead of the ever-evolving global education
-            landscape, UpBrainiacs provides accurate guidance, transparent
-            processes, and personalised support at every stage. At the heart
-            of our mission is a commitment to ethical counselling, ensuring
-            that every student receives honest advice and dedicated
-            assistance in achieving their dream of studying abroad.
+            Driven by a student-first philosophy, UpBrainiacs Global offers
+            end-to-end admission solutions designed to simplify every stage
+            of the overseas education journey — from personalised career
+            counselling and university selection to application processing,
+            document verification, visa assistance, education loan
+            guidance, travel support, and post-arrival assistance.
           </p>
           <p className="about-lead about-lead-secondary">
-            Through our hands-on approach and unwavering focus on student
-            success, UpBrainiacs has developed a trusted model for
-            international education—one that empowers students, transforms
-            aspirations into reality, and serves as a springboard for those
-            seeking world-class educational opportunities across the globe.
+            With a growing network of internationally recognised
+            universities and strategic academic partners, UpBrainiacs
+            Global serves as a trusted gateway to global education,
+            enabling students and parents to make confident and
+            well-informed decisions at every step.
+          </p>
+          <p className="about-lead about-lead-secondary">
+            At the heart of our organisation lies an unwavering commitment
+            to integrity, transparency, and excellence. Our counsellors work
+            closely with students and their families, offering personalised
+            support throughout the entire admission process while
+            maintaining the highest standards of professionalism and
+            ethical practice.
           </p>
           <div className="about-divider" />
         </div>
 
-        {/* Founder */}
+        {/* Founders — side by side */}
         <div className="founder-wrap">
-          <TiltCard className="founder-tilt" maxTilt={4}>
-            <div className="founder-showcase">
-              <div className="founder-photo-side">
-                <span className="founder-logo-badge">
-                  <img src="/ub-logo.png" alt="UpBrainiacs" />
-                </span>
-
-                <div className="founder-accent-block"></div>
-
-                <div className="founder-photo-frame">
-                  <img
-                    src="/about/founder.png"
-                    alt="Shikher Kelvin — Founder & Managing Director, Upbrainiacs Global"
-                  />
-                </div>
-              </div>
-
-              <div className="founder-quote-side">
-                <span className="founder-eyebrow">
-                  A MESSAGE FROM OUR FOUNDER
-                </span>
-
-                <div className="founder-quote-card">
-                  <span className="quote-glyph">"</span>
-                  <p className="founder-quote-text">
-                    UpBrainiacs Global was founded with a strong belief in
-                    the talent and potential of Indian students to excel on
-                    the global stage — built from the ground up with a
-                    student-first approach, dedicated to supporting every
-                    student from the very beginning of their journey.
-                  </p>
-                  <span className="quote-glyph quote-glyph-end">"</span>
-
-                  <div className="founder-principles">
-                    <span>"Be Good, Do Good."</span>
-                    <span>"Deserve Before You Desire."</span>
-                  </div>
-
-                  <div className="founder-signature">
-                    <span className="founder-name">— Shikher Kelvin</span>
-                    <span className="founder-role">
-                      Founder & Managing Director, Upbrainiacs Global Pvt.
-                      Ltd.
+          <div className="founders-row">
+            {founders.map((f) => (
+              <TiltCard className="founder-tilt" maxTilt={4} key={f.id}>
+                <div className="founder-card">
+                  <div className="founder-photo-side">
+                    <span className="founder-logo-badge">
+                      <img src="/ub-logo.png" alt="UpBrainiacs" />
                     </span>
+
+                    <div className="founder-accent-block"></div>
+
+                    <div className="founder-photo-frame">
+                      <img src={f.photo} alt={`${f.name} — ${f.role}`} />
+                    </div>
+                  </div>
+
+                  <div className="founder-quote-side">
+                    <span className="founder-eyebrow">A MESSAGE FROM</span>
+
+                    <div className="founder-quote-card">
+                      <span className="quote-glyph">"</span>
+                      <p className="founder-quote-text">{f.desc}</p>
+                      <span className="quote-glyph quote-glyph-end">"</span>
+
+                      {f.principles && (
+                        <div className="founder-principles">
+                          {f.principles.map((p, idx) => (
+                            <span key={idx}>{p}</span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="founder-signature">
+                        <span className="founder-name">— {f.name}</span>
+                        <span className="founder-role">{f.role}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </TiltCard>
+              </TiltCard>
+            ))}
+          </div>
         </div>
 
         {/* Services — mouse-follow 3D tilt cards, full descriptions */}

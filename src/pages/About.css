@@ -23,7 +23,7 @@
   text-align: center;
 }
 
-/* ===== INTRO — starts right below the fixed navbar ===== */
+/* ===== INTRO ===== */
 .about-intro {
   max-width: 760px;
   margin: 0 auto 70px;
@@ -71,22 +71,27 @@
   margin: 20px auto 0;
 }
 
-/* ===== FOUNDER ===== */
+/* ===== FOUNDERS — two side by side ===== */
 .founder-wrap {
   margin-bottom: 70px;
 }
 
-.founder-tilt {
-  border-radius: 32px !important;
+.founders-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
-.founder-showcase {
-  display: grid;
-  grid-template-columns: 300px 1fr;
+.founder-tilt {
+  border-radius: 28px !important;
+}
+
+.founder-card {
   background: linear-gradient(135deg, #fff 0%, #fdeaea 100%);
-  padding: 32px;
-  gap: 10px;
-  align-items: center;
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .founder-photo-side {
@@ -94,22 +99,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 22px;
 }
 
 .founder-logo-badge {
   position: absolute;
   top: -14px;
-  left: -14px;
+  left: calc(50% - 90px);
   z-index: 4;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   background: #fff;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 5px;
 }
 
 .founder-logo-badge img {
@@ -120,10 +126,10 @@
 
 .founder-accent-block {
   position: absolute;
-  top: 18px;
-  left: 18px;
-  width: 100%;
-  height: 100%;
+  top: 16px;
+  left: calc(50% - 92px);
+  width: 180px;
+  height: 220px;
   background: linear-gradient(135deg, #d10000 0%, #7a0000 100%);
   clip-path: polygon(0 0, 100% 0, 100% 85%, 15% 100%);
   z-index: 1;
@@ -132,11 +138,11 @@
 .founder-photo-frame {
   position: relative;
   z-index: 2;
-  width: 100%;
+  width: 180px;
   aspect-ratio: 3 / 4;
   overflow: hidden;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 15% 100%);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .founder-photo-frame img {
@@ -154,29 +160,30 @@
 }
 
 .founder-quote-side {
-  padding: 14px 8px 14px 24px;
+  flex: 1;
 }
 
 .founder-eyebrow {
   display: block;
   color: #d10000;
   font-weight: 700;
-  letter-spacing: 3px;
-  font-size: 12px;
-  margin-bottom: 14px;
+  letter-spacing: 2.5px;
+  font-size: 11px;
+  margin-bottom: 12px;
+  text-align: center;
 }
 
 .founder-quote-card {
   position: relative;
   background: #fff;
-  border-radius: 20px;
-  padding: 28px 28px 24px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  padding: 22px 22px 20px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
 }
 
 .quote-glyph {
   font-family: "Outfit", sans-serif;
-  font-size: 48px;
+  font-size: 40px;
   color: #f0c0c0;
   font-weight: 900;
   line-height: 0.4;
@@ -185,51 +192,51 @@
 
 .quote-glyph-end {
   text-align: right;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .founder-quote-text {
-  font-family: "Outfit", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  font-style: italic;
-  color: #1a1a1a;
-  line-height: 1.55;
-  margin: 8px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.65;
+  margin: 6px 0;
 }
 
 .founder-principles {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   color: #d10000;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  margin: 16px 0 18px;
+  margin: 12px 0 14px;
 }
 
 .founder-signature {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 6px;
+  gap: 4px;
   border-top: 1px solid #f0dede;
-  padding-top: 14px;
+  padding-top: 12px;
 }
 
 .founder-name {
   font-family: "Outfit", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
   color: #111;
 }
 
 .founder-role {
-  font-size: 11.5px;
+  font-size: 10.5px;
   color: #888;
+  text-align: right;
 }
 
-/* ===== SERVICES — 3D tilt grid, exact reference style ===== */
+/* ===== SERVICES — 3D tilt grid ===== */
 .about-services {
   margin-bottom: 0;
 }
@@ -245,7 +252,6 @@
   position: relative;
   border-right: 1px solid #e2ddd4;
   border-bottom: 1px solid #e2ddd4;
-  transform-style: preserve-3d;
 }
 
 .tilt-grid-cell:nth-child(2n) {
@@ -335,27 +341,13 @@
     font-size: 30px;
   }
 
-  .founder-showcase {
+  .founders-row {
     grid-template-columns: 1fr;
-    padding: 20px;
-    gap: 28px;
   }
 
-  .founder-photo-side {
-    max-width: 220px;
-    margin: 14px auto 0;
-  }
-
-  .founder-quote-side {
-    padding: 0;
-  }
-
-  .founder-quote-card {
-    padding: 22px 18px;
-  }
-
-  .founder-quote-text {
-    font-size: 14.5px;
+  .founder-photo-frame,
+  .founder-accent-block {
+    width: 160px;
   }
 }
 
@@ -370,9 +362,5 @@
 
   .tilt-grid-cell:not(:last-child) {
     border-bottom: 1px solid #e2ddd4 !important;
-  }
-
-  .tilt-grid-cell:hover .tilt-grid-inner {
-    transform: none;
   }
 }
