@@ -55,7 +55,7 @@ const Footer = () => {
           <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/register">Registration</a>
-          <a href="/faq">FAQ</a>
+          <a href="/budget-calculator">Budget Calculator</a>
           <a href="/terms">Terms & Conditions</a>
           <a href="/privacy">Privacy Policy</a>
         </div>

@@ -150,6 +150,9 @@ const Navbar = () => {
             </ul>
           )}
         </li>
+        <li>
+          <Link to="/budget-calculator">Budget Calculator</Link>
+        </li>
 
         <li>
           <a href="#register" onClick={scrollToRegister}>Registration</a>
@@ -210,6 +213,10 @@ const Navbar = () => {
                 ))}
               </ul>
             )}
+          </li>
+
+          <li>
+              <Link to="/budget-calculator">Budget Calculator</Link>
           </li>
 
           <li>

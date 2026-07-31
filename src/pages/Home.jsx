@@ -86,6 +86,8 @@ export default function Home() {
       {/* Registration Form */}
       <RegisterForm />
 
+
+
       {/* Countries Section */}
       <Countries />
 
