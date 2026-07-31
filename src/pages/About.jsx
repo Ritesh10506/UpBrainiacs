@@ -186,13 +186,17 @@ const About = () => {
                 <div className="founder-card">
                   <div className="founder-photo-side">
                     <span className="founder-logo-badge">
-                      <img src="/ub-logo.png" alt="UpBrainiacs" />
+                      <img src="/ub-logo.png" alt="UpBrainiacs" loading="lazy" />
                     </span>
 
                     <div className="founder-accent-block"></div>
 
                     <div className="founder-photo-frame">
-                      <img src={f.photo} alt={`${f.name} — ${f.role}`} />
+                      <img
+                        src={f.photo}
+                        alt={`${f.name} — ${f.role}`}
+                        loading="lazy"
+                      />
                     </div>
                   </div>
 
