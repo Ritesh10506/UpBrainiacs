@@ -9,6 +9,8 @@ from app.routers import (
     universities,
     services,
     appointments,
+    auth,
+
 )
 
 from app.database import (
@@ -124,4 +126,11 @@ app.include_router(
     appointments.router,
     prefix="/appointments",
     tags=["Appointments"]
+
+
+)
+app.include_router(
+    auth.router,
+    prefix="/auth",
+    tags=["Auth"]
 )

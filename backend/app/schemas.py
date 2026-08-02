@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 # -------------------------
-# Student Schemas
+# Student Schemas (inquiry/lead form)
 # -------------------------
 
 class StudentBase(BaseModel):
@@ -88,3 +88,39 @@ class Appointment(AppointmentBase):
 
     class Config:
         from_attributes = True
+
+
+# -------------------------
+# Auth Schemas (Student login accounts)
+# -------------------------
+
+class StudentAccountOut(BaseModel):
+    id: int
+    email: str
+    full_name: str = ""
+    profile_picture: str = ""
+
+    class Config:
+        from_attributes = True
+
+
+class GoogleLoginRequest(BaseModel):
+    credential: str
+
+
+class OTPRequest(BaseModel):
+    email: str
+
+
+class OTPVerify(BaseModel):
+    email: str
+    otp: str
+
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+    student_id: int
+    student_email: str
+    student_full_name: str = ""
+    student_profile_picture: str = ""

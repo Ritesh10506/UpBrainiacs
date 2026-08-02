@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
+from datetime import datetime
 from .database import Base
 
 class Student(Base):
@@ -37,3 +38,19 @@ class Appointment(Base):
     notes = Column(String(300))
 
     student = relationship("Student")
+
+class StudentAccount(Base):
+    __tablename__ = "student_accounts"
+
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String(150), unique=True, index=True, nullable=False)
+    full_name = Column(String(200), nullable=True)
+    profile_picture = Column(String(500), nullable=True)
+
+    google_id = Column(String(100), unique=True, index=True, nullable=True)
+
+    otp_code = Column(String(6), nullable=True)
+    otp_expires_at = Column(DateTime, nullable=True)
+
+    created_at = Column(DateTime, default=datetime.utcnow)
+    last_login = Column(DateTime, default=datetime.utcnow)
