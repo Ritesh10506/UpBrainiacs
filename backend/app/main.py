@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
-from sqlalchemy import text
+from sqlalchemy import text, inspect
 
 from app.routers import (
     student,
@@ -23,6 +23,10 @@ from app import models
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
+# ponytail: one-off column migration instead of Alembic; switch to Alembic if the schema keeps changing
+if "status" not in [c["name"] for c in inspect(engine).get_columns("students")]:
+    with engine.begin() as conn:
+        conn.execute(text("ALTER TABLE students ADD COLUMN status VARCHAR(30) NOT NULL DEFAULT 'New'"))
 
 tags_metadata = [
     {"name": "Students", "description": "Operations with students"},

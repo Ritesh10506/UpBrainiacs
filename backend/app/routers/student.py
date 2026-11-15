@@ -99,6 +99,20 @@ def update_student(
 
     return db_student
 
+@router.patch("/{student_id}/status", response_model=schemas.Student)
+def update_student_status(
+    student_id: int,
+    payload: schemas.StudentStatusUpdate,
+    db: Session = Depends(get_db),
+    admin: models.Admin = Depends(get_current_admin)
+):
+    db_student = db.query(models.Student).filter(models.Student.id == student_id).first()
+    if not db_student:
+        raise HTTPException(status_code=404, detail="Student not found")
+    db_student.status = payload.status
+    db.commit()
+    db.refresh(db_student)
+    return db_student
 
 @router.delete("/{student_id}")
 def delete_student(
@@ -117,7 +131,8 @@ def delete_student(
             status_code=404,
             detail="Student not found"
         )
-
+    # appointments reference the student (FK); remove them first or MySQL rejects the delete
+    db.query(models.Appointment).filter(models.Appointment.student_id == student_id).delete()
     db.delete(db_student)
     db.commit()
 

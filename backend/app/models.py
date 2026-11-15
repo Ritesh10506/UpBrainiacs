@@ -13,6 +13,7 @@ class Student(Base):
     degree_pref = Column(String(50))
     country_pref = Column(String(50))
     expected_neet_score= Column(String(50))
+    status = Column(String(30), nullable=False, default="New", server_default="New")
 
 
 class University(Base):

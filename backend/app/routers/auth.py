@@ -155,3 +155,25 @@ def verify_otp(payload: schemas.OTPVerify, db: Session = Depends(get_db)):
 @router.get("/me", response_model=schemas.StudentAccountOut)
 def get_me(current_student: models.StudentAccount = Depends(get_current_student)):
     return current_student
+# -------------------------
+# Logged-in student's own enquiry + appointments (matched by email)
+# -------------------------
+@router.get("/me/application", response_model=schemas.StudentApplication)
+def get_my_application(
+    current_student: models.StudentAccount = Depends(get_current_student),
+    db: Session = Depends(get_db),
+):
+    enquiry = (
+        db.query(models.Student)
+        .filter(models.Student.email == current_student.email)
+        .first()
+    )
+    appointments = []
+    if enquiry:
+        appointments = (
+            db.query(models.Appointment)
+            .filter(models.Appointment.student_id == enquiry.id)
+            .order_by(models.Appointment.date)
+            .all()
+        )
+    return {"enquiry": enquiry, "appointments": appointments}

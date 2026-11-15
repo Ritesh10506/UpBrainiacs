@@ -1,5 +1,8 @@
 from pydantic import BaseModel
 from datetime import datetime
+from typing import Literal, Optional
+
+STATUSES = ("New", "Contacted", "Applied", "Admitted", "Rejected")
 
 # -------------------------
 # Student Schemas (inquiry/lead form)
@@ -21,9 +24,14 @@ class StudentCreate(StudentBase):
 
 class Student(StudentBase):
     id: int
+    status: str = "New"
 
     class Config:
         from_attributes = True
+
+
+class StudentStatusUpdate(BaseModel):
+    status: Literal[STATUSES]
 
 
 # -------------------------
@@ -105,11 +113,17 @@ class Appointment(AppointmentBase):
 class StudentAccountOut(BaseModel):
     id: int
     email: str
-    full_name: str = ""
-    profile_picture: str = ""
+    # OTP-created accounts have no name/photo yet (NULL in DB)
+    full_name: Optional[str] = ""
+    profile_picture: Optional[str] = ""
 
     class Config:
         from_attributes = True
+
+
+class StudentApplication(BaseModel):
+    enquiry: Optional[Student] = None
+    appointments: list[Appointment] = []
 
 
 class GoogleLoginRequest(BaseModel):
