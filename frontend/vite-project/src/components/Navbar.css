@@ -308,12 +308,18 @@
 
 @media(max-width: 768px){
 
-  .navbar{
+    .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     padding: 0 20px;
+
+    /* backdrop-filter makes the fixed mobile menu stick inside the navbar
+       and push the page sideways, so it is turned off on phones */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: #ffffff;
   }
 
   .brand{
@@ -358,6 +364,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    height: 100vh;
+    height: 100dvh;
+    width: min(78vw, 320px);
 
     position: fixed;
     top: 0;

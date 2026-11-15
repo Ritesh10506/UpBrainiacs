@@ -196,6 +196,7 @@ const RegisterForm = () => {
 
             <button
               type="submit"
+              className="submit-btn"
               disabled={loading}
             >
               {loading

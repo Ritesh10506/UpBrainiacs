@@ -50,6 +50,22 @@
   }
 }
 
+/* Phone/tablet fix: border-box stops 100%-wide elements that have padding
+   (like the fixed navbar) from being wider than the screen. Desktop stays
+   exactly as it was. */
+@media (max-width: 1024px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
 }

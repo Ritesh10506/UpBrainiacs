@@ -61,6 +61,7 @@
 }
 
 .hero-content h1 {
+  color: #fff;
   font-size: 2.4rem;
   line-height: 1.25;
   margin-bottom: 16px;
@@ -139,6 +140,12 @@ html, body, #root {
 ========================= */
 
 @media(max-width:768px){
+
+  /* no forced full-screen height on phones: removes the big blank gap
+     between the hero and the stats */
+  .hero-stats-wrap {
+    min-height: auto;
+  }
 
   .hero {
     height: 64vh;

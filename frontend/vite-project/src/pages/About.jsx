@@ -6,6 +6,8 @@ import "./About.css";
 const services = [
   {
     id: "admission",
+    image: "/about/admission.webp",
+    tags: ["IELTS / TOEFL / PTE", "SOP & LOR", "Scholarships"],
     title: "Admission Guidance",
     desc: "Complete documentation support including identity proofs, academic records, English-test scores (IELTS/TOEFL/PTE), plagiarism-free SOPs and LORs, express admission processing, interview preparation and scholarship application assistance.",
     icon: (
@@ -17,6 +19,8 @@ const services = [
   },
   {
     id: "financial",
+    image: "/about/student.webp",
+    tags: ["25+ banks & NBFCs", "Up to ₹1.5 Cr unsecured", "Rates from 3.5%"],
     title: "Financial Assistance & Scholarships",
     desc: "Access to 25+ nationalised, private, cooperative and foreign banks & NBFCs. Unsecured loans up to ₹1.5 Crore and secured loans up to ₹5 Crore at rates starting from 3.5%, with pre & post loan support, instant eligibility checks and fast, discounted processing throughout.",
     icon: (
@@ -27,6 +31,8 @@ const services = [
   },
   {
     id: "insurance",
+    image: "/offerings/counseling.webp",
+    tags: ["Travel & medical", "Claim assistance", "1,20,000+ policies"],
     title: "Insurance Assistance",
     desc: "Customized travel, mandatory and extended medical insurance plans with tie-ups across leading global providers. End-to-end claim assistance, university waiver guidance and fully online accessibility, backed by 1,20,000+ policies issued to date.",
     icon: (
@@ -37,6 +43,8 @@ const services = [
   },
   {
     id: "visa",
+    image: "/about/visa.webp",
+    tags: ["Country-wise guidance", "Document compliance", "Full processing support"],
     title: "Visa Assistance",
     desc: "Personalised guidance mapped to your destination country's exact requirements. Accurate, on-time application filing with full document compliance, and ongoing support through the entire visa processing window to reduce delays or rejections.",
     icon: (
@@ -53,7 +61,7 @@ const founders = [
     id: "shikher",
     name: "Shikher Kelvin",
     role: "Founder & Chairman, Upbrainiacs Global Pvt. Ltd.",
-    photo: "/about/founder.png",
+    photo: "/about/founder.webp",
     desc: `UpBrainiacs Global Private Limited was founded with a strong belief in the talent and potential of Indian students to excel on the global stage. Built from the ground up with a student-first approach, the organisation is dedicated to supporting every student from the very beginning of their study abroad journey. With deep expertise in international education and a commitment to staying ahead of the ever-evolving global education landscape, UpBrainiacs provides accurate guidance, transparent processes, and personalised support at every stage. Through our hands-on approach and unwavering focus on student success, UpBrainiacs has developed a trusted model for international education—one that empowers students, transforms aspirations into reality, and serves as a springboard for those seeking world-class educational opportunities across the globe.`,
     principles: null,
   },
@@ -61,7 +69,7 @@ const founders = [
     id: "shreyansh",
     name: "Shreyansh Soni",
     role: "Co-Founder & Director, Upbrainiacs Global Pvt. Ltd.",
-    photo: "/about/shreyansh.png",
+    photo: "/about/shreyansh.webp",
     desc: `Passion is one of the most important aspects to cherish life, as it makes you feel every breath that you take — and what makes me passionate is the determination I have to improvise and push things to the level of being called the best. Hard work pays well, but smart work pays even better — I believe there is always a better way to get things done, and I love finding that out. I am not the kind of person who would devote anything less than 100% to anything I'm attached to. I believe everyone has their own signature style of working, and so do I — in whichever company I have worked with, I make sure I add improvements through my skills and potential, because I believe there is always scope for improvement.`,
     principles: ['"Be Good, Do Good."', '"Deserve Before You Desire."'],
   },
@@ -149,7 +157,7 @@ const About = () => {
             aspiring students with access to world-class educational
             opportunities across the globe. Specialising in MBBS admissions
             and higher education abroad, we provide trusted guidance,
-            transparent counselling, and comprehensive support to help
+            transparent counselling, and comprehensive support  help
             students make informed decisions about their academic future.
           </p>
           <p className="about-lead about-lead-secondary">
@@ -230,17 +238,32 @@ const About = () => {
 
         {/* Services — mouse-follow 3D tilt cards, full descriptions */}
         <div className="about-services">
+          <span className="services-eyebrow">WHAT WE DO</span>
           <h2 className="about-heading">Our Services</h2>
+          <p className="services-sub">
+            End-to-end support at every step of your study abroad journey,
+            from the first counselling call to landing on campus.
+          </p>
           <div className="services-tilt-grid">
             {services.map((s, i) => {
               const num = String(i + 1).padStart(2, "0");
               return (
                 <div className="tilt-grid-cell" key={s.id}>
                   <TiltCard className="tilt-grid-inner" maxTilt={5}>
-                    <span className="tilt-num">{num}</span>
+                    <div className="tilt-media">
+                      <img src={s.image} alt={s.title} loading="lazy" />
+                      <span className="tilt-num">{num}</span>
+                    </div>
                     <div className="tilt-icon">{s.icon}</div>
-                    <h3 className="tilt-title">{s.title}</h3>
-                    <p className="tilt-desc">{s.desc}</p>
+                    <div className="tilt-body">
+                      <h3 className="tilt-title">{s.title}</h3>
+                      <p className="tilt-desc">{s.desc}</p>
+                      <div className="tilt-tags">
+                        {s.tags.map((t) => (
+                          <span key={t}>{t}</span>
+                        ))}
+                      </div>
+                    </div>
                   </TiltCard>
                 </div>
               );

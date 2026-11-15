@@ -6,7 +6,7 @@ const UniversityCard = ({ university }) => {
 
       <div className="university-image">
         <img
-          src={university?.image}
+          src={university?.image_url}
           alt={university?.name || "University"}
           loading="lazy"
         />
@@ -29,7 +29,7 @@ const UniversityCard = ({ university }) => {
 
           <div className="detail-item">
             <strong>Type</strong>
-            <span>{university?.type || "N/A"}</span>
+            <span>{university?.university_type || "N/A"}</span>
           </div>
 
           <div className="detail-item">
@@ -60,12 +60,12 @@ const UniversityCard = ({ university }) => {
 
         <div className="info-box">
           <span>MBBS Seats</span>
-          <h3>{university?.seats || "N/A"}</h3>
+          <h3>{university?.mbbs_seats || "N/A"}</h3>
         </div>
 
         <div className="info-box">
           <span>Tuition Fee</span>
-          <h3>{university?.fee || "N/A"}</h3>
+          <h3>{university?.fees || "N/A"}</h3>
         </div>
 
       </div>

@@ -43,6 +43,8 @@ export default function Home() {
             loop
             muted
             playsInline
+            preload="metadata"
+            poster="/hero-poster.jpg"
             className="hero-video"
           >
             <source

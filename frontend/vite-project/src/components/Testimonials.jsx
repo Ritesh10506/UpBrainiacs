@@ -6,6 +6,7 @@ const testimonials = [
     id: 1,
     type: "video",
     src: "/testimonials/video1.mp4",
+    poster: "/testimonials/video1-poster.jpg",
     name: "Campus life",
     course: "Caucasus International University (CIU)",
     quote: "UpBrainiacs partner university.",
@@ -38,6 +39,7 @@ const testimonials = [
     id: 5,
     type: "video",
     src: "/testimonials/video2.mp4",
+    poster: "/testimonials/video2-poster.jpg",
     name: "campus",
     course: "MBBS, CIU",
     quote: "students life in ciu university",
@@ -63,6 +65,7 @@ const testimonials = [
     id: 7,
     type: "video",
     src: "/testimonials/video3.mp4",
+    poster: "/testimonials/video3-poster.jpg",
     name: "Orientation",
     course: "MBBS,CIU",
     quote: "partner university ciu",
@@ -108,6 +111,8 @@ const Testimonials = () => {
                   <video
                     ref={(el) => (videoRefs.current[t.id] = el)}
                     src={t.src}
+                    poster={t.poster}
+                    preload="none"
                     controls
                     playsInline
                     onPlay={() => handlePlay(t.id)}
@@ -115,7 +120,13 @@ const Testimonials = () => {
                     className="testimonial-video"
                   />
                 ) : (
-                  <img src={t.src} alt={t.name} className="testimonial-photo" />
+                  <img
+                    src={t.src}
+                    alt={t.name}
+                    className="testimonial-photo"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 )}
               </div>
               <div className="testimonial-info">

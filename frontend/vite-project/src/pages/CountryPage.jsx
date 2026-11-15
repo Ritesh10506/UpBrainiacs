@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import countriesData from "../data/countriesData";
 
 import Navbar from "../components/Navbar";
@@ -10,10 +11,51 @@ import { FaWhatsapp } from "react-icons/fa";
 
 import "./CountryPage.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 const CountryPage = () => {
   const { country } = useParams();
 
   const data = countriesData[country];
+
+  const [universities, setUniversities] = useState([]);
+  const [loadingUniversities, setLoadingUniversities] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchUniversities = async () => {
+      setLoadingUniversities(true);
+      try {
+        const res = await fetch(`${API_URL}/universities/`);
+        if (!res.ok) throw new Error("Failed to fetch universities");
+        const all = await res.json();
+
+        // Filter to this country (case-insensitive match on backend `country` field)
+        const filtered = all.filter(
+          (u) => u.country?.toLowerCase() === country?.toLowerCase()
+        );
+
+        if (isMounted) {
+          setUniversities(filtered);
+        }
+      } catch (err) {
+        console.error("Error fetching universities, falling back to static data:", err);
+        // Fallback so the page doesn't break if the backend is down
+        if (isMounted) {
+          setUniversities(data?.universities || []);
+        }
+      } finally {
+        if (isMounted) setLoadingUniversities(false);
+      }
+    };
+
+    fetchUniversities();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [country, data]);
 
   if (!data) {
     return (
@@ -91,13 +133,19 @@ const CountryPage = () => {
             <h2>{data.pageTitles?.universityTitle}</h2>
           </div>
 
-          {data.universities?.map((university, index) => (
-            <UniversityCard
-              key={index}
-              university={university}
-              number={index + 1}
-            />
-          ))}
+          {loadingUniversities ? (
+            <p>Loading universities...</p>
+          ) : universities.length === 0 ? (
+            <p>No universities found for this country yet.</p>
+          ) : (
+            universities.map((university, index) => (
+              <UniversityCard
+                key={university.id || index}
+                university={university}
+                number={index + 1}
+              />
+            ))
+          )}
 
         </section>
 
