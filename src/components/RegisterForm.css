@@ -5,7 +5,7 @@ linear-gradient(
 rgba(0,0,0,0.55),
 rgba(0,0,0,0.55)
 ),
-url("/register-bg.png");
+url("/register-bg.webp");
 background-size:cover;
 background-position:center;
 display:flex;
@@ -251,4 +251,16 @@ padding:6px 0;
 font-size:18px;
 }
 
+}
+
+/* Headings must stay white on the dark photo even when the OS is in light
+   mode (index.css colours every h1/h2 with the page text colour). */
+.register-content h1,
+.register-content h2{
+color:#fff;
+}
+
+.submit-btn:disabled{
+opacity:.7;
+cursor:not-allowed;
 }

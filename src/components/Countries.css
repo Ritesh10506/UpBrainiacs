@@ -157,6 +157,11 @@
 /* ---------- Responsive ---------- */
 
 @media (max-width: 640px) {
+    /* side cards only show photo + name, so text of neighbouring cards no
+     longer overlaps the centre card */
+  .country-card-3d:not(.is-active) .card-text p {
+    display: none;
+  }
   .countries-section {
     padding: 20px 16px 32px;
   }

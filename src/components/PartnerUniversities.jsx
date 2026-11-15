@@ -10,34 +10,34 @@ import "./PartnerUniversities.css";
 // Adjust these if your actual slugs are different.
 const universities = [
   // Georgia
-  { name: "Tbilisi State Medical University", country: "Georgia", countrySlug: "georgia", logo: "/universities/tbilisi.png" },
-  { name: "David Tvildiani Medical University", country: "Georgia", countrySlug: "georgia", logo: "/universities/tvildiani.png" },
-  { name: "University of Georgia", country: "Georgia", countrySlug: "georgia", logo: "/universities/georgia.png" },
+  { name: "Tbilisi State Medical University", country: "Georgia", countrySlug: "georgia", logo: "/universities/tbilisi.webp" },
+  { name: "David Tvildiani Medical University", country: "Georgia", countrySlug: "georgia", logo: "/universities/tvildiani.webp" },
+  { name: "University of Georgia", country: "Georgia", countrySlug: "georgia", logo: "/universities/georgia.webp" },
 
   // Kazakhstan
-  { name: "Asfendiyarov Kazakh National Medical University", country: "Kazakhstan", countrySlug: "kazakhstan", logo: "/universities/asfendiyarov.png" },
-  { name: "Astana Medical University", country: "Kazakhstan", countrySlug: "kazakhstan", logo: "/universities/astana.png" },
-  { name: "Semey Medical University", country: "Kazakhstan", countrySlug: "kazakhstan", logo: "/universities/semey.png" },
+  { name: "Asfendiyarov Kazakh National Medical University", country: "Kazakhstan", countrySlug: "kazakhstan", logo: "/universities/asfendiyarov.webp" },
+  { name: "Astana Medical University", country: "Kazakhstan", countrySlug: "kazakhstan", logo: "/universities/astana.webp" },
+  { name: "Semey Medical University", country: "Kazakhstan", countrySlug: "kazakhstan", logo: "/universities/semey.webp" },
 
   // Poland
-  { name: "Medical University of Warsaw", country: "Poland", countrySlug: "poland", logo: "/universities/warsaw.png" },
-  { name: "Jagiellonian University Medical College", country: "Poland", countrySlug: "poland", logo: "/universities/jagiellonian.png" },
-  { name: "Medical University of Lodz", country: "Poland", countrySlug: "poland", logo: "/universities/lodz.png" },
+  { name: "Medical University of Warsaw", country: "Poland", countrySlug: "poland", logo: "/universities/warsaw.webp" },
+  { name: "Jagiellonian University Medical College", country: "Poland", countrySlug: "poland", logo: "/universities/jagiellonian.webp" },
+  { name: "Medical University of Lodz", country: "Poland", countrySlug: "poland", logo: "/universities/lodz.webp" },
 
   // Kyrgyzstan
-  { name: "International School of Medicine", country: "Kyrgyzstan", countrySlug: "kyrgyzstan", logo: "/universities/ism.png" },
-  { name: "Kyrgyz State Medical Academy", country: "Kyrgyzstan", countrySlug: "kyrgyzstan", logo: "/universities/ksma.png" },
-  { name: "Osh State University Medical Faculty", country: "Kyrgyzstan", countrySlug: "kyrgyzstan", logo: "/universities/osh.png" },
+  { name: "International School of Medicine", country: "Kyrgyzstan", countrySlug: "kyrgyzstan", logo: "/universities/ism.webp" },
+  { name: "Kyrgyz State Medical Academy", country: "Kyrgyzstan", countrySlug: "kyrgyzstan", logo: "/universities/ksma.webp" },
+  { name: "Osh State University Medical Faculty", country: "Kyrgyzstan", countrySlug: "kyrgyzstan", logo: "/universities/osh.webp" },
 
   // Romania
-  { name: "Carol Davila University of Medicine and Pharmacy", country: "Romania", countrySlug: "romania", logo: "/universities/carol-davila.png" },
-  { name: "Iuliu Hatieganu University of Medicine and Pharmacy", country: "Romania", countrySlug: "romania", logo: "/universities/iuliu-hatieganu.png" },
-  { name: "Grigore T. Popa University of Medicine and Pharmacy", country: "Romania", countrySlug: "romania", logo: "/universities/grigore-popa.png" },
+  { name: "Carol Davila University of Medicine and Pharmacy", country: "Romania", countrySlug: "romania", logo: "/universities/carol-davila.webp" },
+  { name: "Iuliu Hatieganu University of Medicine and Pharmacy", country: "Romania", countrySlug: "romania", logo: "/universities/iuliu-hatieganu.webp" },
+  { name: "Grigore T. Popa University of Medicine and Pharmacy", country: "Romania", countrySlug: "romania", logo: "/universities/grigore-popa.webp" },
 
   // Nepal
-  { name: "B.P. Koirala Institute of Health Sciences", country: "Nepal", countrySlug: "nepal", logo: "/universities/bpkoirala.png" },
-  { name: "Kathmandu Medical College", country: "Nepal", countrySlug: "nepal", logo: "/universities/kathmandu.png" },
-  { name: "Institute of Medicine, Tribhuvan University", country: "Nepal", countrySlug: "nepal", logo: "/universities/iom.png" },
+  { name: "B.P. Koirala Institute of Health Sciences", country: "Nepal", countrySlug: "nepal", logo: "/universities/bpkoirala.webp" },
+  { name: "Kathmandu Medical College", country: "Nepal", countrySlug: "nepal", logo: "/universities/kathmandu.webp" },
+  { name: "Institute of Medicine, Tribhuvan University", country: "Nepal", countrySlug: "nepal", logo: "/universities/iom.webp" },
 ];
 
 const PartnerUniversities = () => {
@@ -66,7 +66,7 @@ const PartnerUniversities = () => {
               key={`${uni.name}-${i}`}
             >
               <div className="pu-logo">
-                <img src={uni.logo} alt={uni.name} />
+                  <img src={uni.logo} alt={uni.name} loading="lazy" decoding="async" width="360" height="360" />
               </div>
               <h3>{uni.name}</h3>
               <span className="pu-country">{uni.country}</span>

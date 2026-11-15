@@ -8,7 +8,7 @@
 .benefits-bg {
   position: absolute;
   inset: 0;
-  background: url("/about/about-main.png") center/cover no-repeat;
+  background: url("/about/about-main.webp") center/cover no-repeat;
   z-index: 0;
 }
 
@@ -346,5 +346,34 @@
   .founder-card--reverse .founder-accent-block {
     width: 160px;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 15% 100%);
+  }
+}
+
+/* ===== Home page — mobile fit ===== */
+@media (max-width: 600px) {
+  .benefits-section {
+    padding: 70px 5% 56px;
+  }
+
+  .benefits-header {
+    margin-bottom: 30px;
+  }
+
+  .benefits-brandline {
+    font-size: 36px;
+  }
+
+  .benefits-subhead {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .benefits-para {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .mc-container.mc-mobile {
+    height: auto;
   }
 }
