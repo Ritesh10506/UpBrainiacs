@@ -13,6 +13,15 @@ import "./CountryPage.css";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
+// Static data uses image/seats/fee/type; UniversityCard reads the DB names.
+const fromStatic = (u) => ({
+  ...u,
+  image_url: u.image_url ?? u.image,
+  university_type: u.university_type ?? u.type,
+  mbbs_seats: u.mbbs_seats ?? u.seats,
+  fees: u.fees ?? u.fee,
+});
+
 const CountryPage = () => {
   const { country } = useParams();
 
@@ -37,13 +46,13 @@ const CountryPage = () => {
         );
 
         if (isMounted) {
-          setUniversities(filtered.length ? filtered : data?.universities || []);
+          setUniversities(filtered.length ? filtered : (data?.universities || []).map(fromStatic));
         }
       } catch (err) {
         console.error("Error fetching universities, falling back to static data:", err);
         // Fallback so the page doesn't break if the backend is down
         if (isMounted) {
-          setUniversities(data?.universities || []);
+          setUniversities((data?.universities || []).map(fromStatic));
         }
       } finally {
         if (isMounted) setLoadingUniversities(false);
