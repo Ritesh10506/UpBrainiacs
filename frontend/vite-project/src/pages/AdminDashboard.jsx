@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdminAuth } from "../context/AdminAuthContext";
 import UniversitiesPanel from "../components/admin/UniversitiesPanel";
+import CrudPanel from "../components/admin/CrudPanel";
 import "./AdminDashboard.css";
 
 const TABS = [
@@ -51,9 +52,55 @@ const AdminDashboard = () => {
 
       <main className="admin-main">
         {activeTab === "universities" && <UniversitiesPanel />}
-        {activeTab === "students" && <p>Students panel — coming next.</p>}
-        {activeTab === "services" && <p>Services panel — coming next.</p>}
-        {activeTab === "appointments" && <p>Appointments panel — coming next.</p>}
+        {activeTab === "students" && (
+          <CrudPanel
+            title="Students"
+            endpoint="students"
+            canEdit={false}
+            statusColumn
+            fields={[]}
+            columns={[
+              { key: "first_name", label: "First name" },
+              { key: "last_name", label: "Last name" },
+              { key: "email", label: "Email" },
+              { key: "mobile", label: "Mobile" },
+              { key: "degree_pref", label: "Degree" },
+              { key: "country_pref", label: "Country" },
+              { key: "expected_neet_score", label: "NEET" },
+              { key: "status", label: "Status" },
+            ]}
+          />
+        )}
+        {activeTab === "services" && (
+          <CrudPanel
+            title="Services"
+            endpoint="services"
+            fields={[
+              { name: "name", label: "Service name", required: true },
+              { name: "description", label: "Description" },
+            ]}
+            columns={[
+              { key: "name", label: "Name" },
+              { key: "description", label: "Description" },
+            ]}
+          />
+        )}
+        {activeTab === "appointments" && (
+          <CrudPanel
+            title="Appointments"
+            endpoint="appointments"
+            fields={[
+              { name: "student_id", label: "Student ID", type: "number", required: true },
+              { name: "date", label: "Date & time", type: "datetime-local", required: true },
+              { name: "notes", label: "Notes" },
+            ]}
+            columns={[
+              { key: "student_id", label: "Student ID" },
+              { key: "date", label: "Date" },
+              { key: "notes", label: "Notes" },
+            ]}
+          />
+        )}
       </main>
     </div>
   );

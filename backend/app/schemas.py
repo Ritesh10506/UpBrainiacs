@@ -40,17 +40,17 @@ class StudentStatusUpdate(BaseModel):
 
 class UniversityBase(BaseModel):
     name: str
-    image_url: str = ""
-    description: str = ""
-    established: str = ""
-    university_type: str = ""
-    location: str = ""
+    image_url: str | None = ""
+    description: str | None = ""
+    established: str | None = ""
+    university_type: str | None = ""
+    location: str | None = ""
     country: str
-    duration: str = ""
-    medium: str = ""
-    recognition: str = ""
+    duration: str | None = ""
+    medium: str | None = ""
+    recognition: str | None = ""
     degree_type: str
-    mbbs_seats: str = ""
+    mbbs_seats: str | None = ""
     fees: str
     scholarships: str
 
@@ -71,7 +71,7 @@ class University(UniversityBase):
 
 class ServiceBase(BaseModel):
     name: str
-    description: str
+    description: str | None = ""
 
 
 class ServiceCreate(ServiceBase):
@@ -92,7 +92,7 @@ class Service(ServiceBase):
 class AppointmentBase(BaseModel):
     student_id: int
     date: datetime
-    notes: str
+    notes: str | None = ""
 
 
 class AppointmentCreate(AppointmentBase):
