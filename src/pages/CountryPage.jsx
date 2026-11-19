@@ -37,7 +37,7 @@ const CountryPage = () => {
         );
 
         if (isMounted) {
-          setUniversities(filtered);
+          setUniversities(filtered.length ? filtered : data?.universities || []);
         }
       } catch (err) {
         console.error("Error fetching universities, falling back to static data:", err);
